@@ -100,28 +100,28 @@ workspace:
   context-routing:
     - path-pattern: "app/**"
       workflow: "monorepo-backend"
-      default-agents: [Sisyphus, backend-laravel, test-engineer]
+      default-agents: [Kato-Engineer, backend-laravel, test-engineer]
       
     - path-pattern: "ui/**"
       workflow: "monorepo-frontend"
-      default-agents: [Sisyphus, frontend-react-ts, frontend-ui-ux-engineer]
+      default-agents: [Kato-Engineer, frontend-react-ts, frontend-ui-ux-engineer]
       
     - path-pattern: "resources/assets/js/angular/**"
       workflow: "monorepo-frontend"
-      default-agents: [Sisyphus, frontend-angularjs-legacy]
+      default-agents: [Kato-Engineer, frontend-angularjs-legacy]
       
     - path-pattern: "database/**"
       workflow: "monorepo-backend"
-      default-agents: [Sisyphus, database-architect]
+      default-agents: [Kato-Engineer, database-architect]
       
     - path-pattern: "routes/**"
       workflow: "api-contract"
-      default-agents: [Sisyphus, api-designer, backend-laravel]
+      default-agents: [Kato-Engineer, api-designer, backend-laravel]
 
   cost-optimization:
     strategy: "Haiku 4.5 for 90% of work, Opus for migrations/complex architecture"
     monthly-budget: "$40 for all Kato work"
-    baseline-model: Sisyphus
+    baseline-model: Kato-Engineer
     escalation-path: Architect-Opus
 
   performance-targets:

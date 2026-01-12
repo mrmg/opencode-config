@@ -1,7 +1,7 @@
 agents:
   # ============= MAIN AGENTS (HAIKU 4.5) =============
-  Sisyphus:
-    role: "Cost-optimized main agent"
+  Kato-Engineer:
+    role: "Cost-optimized main agent for Kato"
     model: "claude-haiku-4-5"
     temperature: 0.3
     capabilities:
@@ -11,8 +11,8 @@ agents:
       - refactoring
     description: "Primary agent for Kato work. Haiku 4.5: 73.3% SWE-bench, 2x faster than Sonnet, extended thinking."
     
-  Planner-Sisyphus:
-    role: "Strategic planner with extended thinking"
+  Kato-Planner:
+    role: "Strategic planner with extended thinking for Kato"
     model: "claude-haiku-4-5"
     temperature: 0.3
     capabilities:
@@ -22,8 +22,8 @@ agents:
       - reasoning
     description: "Plan complex features and architectures. Haiku 4.5 extended thinking for deeper reasoning."
     
-  Builder-Sisyphus:
-    role: "Fast implementation executor"
+  Kato-Builder:
+    role: "Fast implementation executor for Kato"
     model: "claude-haiku-4-5"
     temperature: 0.2
     capabilities:
@@ -191,7 +191,7 @@ agents:
       - stack-trace-parsing
       - root-cause-analysis
       - debugging-strategy
-    description: "Advanced debugging after 2+ failures. Use Sisyphus first, escalate here."
+    description: "Advanced debugging after 2+ failures. Use Kato-Engineer first, escalate here."
 
   premium-fallback:
     role: "Premium fallback when Haiku insufficient"
