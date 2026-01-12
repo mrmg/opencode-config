@@ -225,12 +225,13 @@ Single repo as source of truth:
 
 ## 📖 Documentation
 
-- **[MIGRATION_GUIDE.md](MIGRATION_GUIDE.md)** - Step-by-step setup for new machines
-- **[RESTRUCTURE_PLAN.md](RESTRUCTURE_PLAN.md)** - Architecture, rationale, and design decisions
+- **[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)** - Step-by-step setup for new machines
+- **[docs/RESTRUCTURE_PLAN.md](docs/RESTRUCTURE_PLAN.md)** - Architecture, rationale, and design decisions
+- **[docs/00_START_HERE.md](docs/00_START_HERE.md)** - Quick start guide
 - **[config/claude/README.md](config/claude/README.md)** - Claude Code-specific documentation
 - **[config/opencode/README.md](config/opencode/README.md)** - OpenCode-specific documentation
-- **[agent-reference/](agent-reference/)** - Detailed agent personality docs
-- **[shared-concepts/](shared-concepts/)** - Cost optimization, workspace detection, flows
+- **[agent/](agent/)** - Agent personality docs
+- **[command/](command/)** - Command templates
 
 ## 🔄 Workflow Examples
 
