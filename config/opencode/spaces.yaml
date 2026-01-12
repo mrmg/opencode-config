@@ -1,0 +1,53 @@
+spaces:
+  rust-ai-projects:
+    name: "Rust AI Experiments"
+    paths:
+      - "/home/mrmg/Development/Personal/rust-*"
+      - "/home/mrmg/Tinkering/rust-*"
+    agents:
+      primary: Sisyfreeus
+      specialist: rust-ai-engineer
+      secondary: reasoner-free
+    default-flow: "rust-ai"
+    description: "Your Rust AI/ML experiments and algorithms"
+
+  python-ai-projects:
+    name: "Python AI Research"
+    paths:
+      - "/home/mrmg/Development/Personal/python-*"
+      - "/home/mrmg/Tinkering/python-*"
+      - "/home/mrmg/Tinkering/ml-*"
+    agents:
+      primary: Sisyfreeus
+      specialist: python-ai-researcher
+      secondary: reasoner-free
+    default-flow: "python-ai"
+    description: "Your Python ML/AI research and experiments"
+
+  gamedev-haxe-projects:
+    name: "Haxe Game Development"
+    paths:
+      - "/home/mrmg/Development/Personal/game-*"
+      - "/home/mrmg/Projects/2d-game*"
+    agents:
+      primary: Sisyfreeus
+      specialist: gamedev-haxe
+      secondary: frontend-free
+    default-flow: "gamedev-haxe"
+    description: "Your 2D game development in Haxe/Heaps"
+
+  general-tinkering:
+    name: "General Experimentation"
+    paths:
+      - "/home/mrmg/Tinkering/*"
+      - "/home/mrmg/Development/Personal/misc-*"
+    agents:
+      primary: Sisyfreeus
+      explorer: explore-free
+    default-flow: null
+    description: "General-purpose tinkering and experimentation"
+
+context-detection:
+  enabled: true
+  behavior: "Auto-load workspace agents when opening files in these paths"
+  fallback-agent: Sisyfreeus

@@ -1,0 +1,186 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                   DUAL-TOOL AI CONFIG RESTRUCTURE                         ║
+║                      Claude Code + OpenCode Setup                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+YOUR WORKFLOW:
+┌─────────────────────────────┬──────────────────────────────┐
+│      WORK (Kato)            │     PERSONAL (Side Projects) │
+├─────────────────────────────┼──────────────────────────────┤
+│ Tool: Claude Code           │ Tool: OpenCode               │
+│ Model: Haiku 4.5 (default)  │ Model: GLM-4.7 FREE (default)│
+│ Cost: $40/month             │ Cost: FREE + ~$5/mo premium  │
+│ Stack: Laravel/React        │ Stacks: Rust/Python/Haxe    │
+└─────────────────────────────┴──────────────────────────────┘
+
+NEW DIRECTORY STRUCTURE:
+═════════════════════════════════════════════════════════════
+
+opencode-config/
+│
+├── claude/                           (→ ~/.claude/)
+│   ├── agents.yaml                   Claude agents
+│   ├── workflows.yaml                Kato workflows  
+│   ├── workspace.yaml                Kato context routing
+│   └── README.md                     Claude docs
+│
+├── opencode/                         (→ ~/.config/opencode/)
+│   ├── agents.json                   OpenCode agents
+│   ├── config.jsonc                  Plugins/MCP
+│   ├── workflows.yaml                Personal workflows
+│   ├── spaces.yaml                   Workspace detection
+│   ├── commands/                     Custom commands
+│   └── README.md                     OpenCode docs
+│
+├── agent-reference/                  (Documentation)
+├── shared-concepts/                  (Documentation)
+├── RESTRUCTURE_PLAN.md               Full architecture
+├── MIGRATION_GUIDE.md                Setup instructions
+├── IMPLEMENTATION_CHECKLIST.md       This plan
+└── README.md                         Overview
+
+SETUP STEPS (5-10 MINUTES):
+════════════════════════════════════════════════════════════════
+
+1. CREATE CLAUDE SYMLINK:
+   $ ln -sf /home/mrmg/Development/Build/opencode-config/claude ~/.claude
+
+2. CREATE OPENCODE SYMLINK:
+   $ mkdir -p ~/.config
+   $ ln -sf /home/mrmg/Development/Build/opencode-config/opencode ~/.config/opencode
+
+3. VERIFY BOTH EXIST:
+   $ ls ~/.claude/agents.yaml
+   $ ls ~/.config/opencode/agents.json
+
+4. TEST CLAUDE CODE:
+   - Open Kato repository
+   - Open a backend file → should suggest backend-laravel
+   - Open a frontend file → should suggest frontend-react-ts
+
+5. TEST OPENCODE:
+   - Open a Rust project → should suggest rust-ai-engineer
+   - Open a Python project → should suggest python-ai-researcher
+
+AGENTS AVAILABLE:
+════════════════════════════════════════════════════════════════
+
+CLAUDE CODE (KATO WORK):
+├─ Sisyphus (Haiku 4.5) - Primary agent
+├─ Planner-Sisyphus (Haiku 4.5) - Planning
+├─ Builder-Sisyphus (Haiku 4.5) - Implementation
+├─ Architect-Opus (Opus 4.5) - Premium escalation
+├─ backend-laravel (Haiku 4.5) - Laravel specialist
+├─ frontend-react-ts (Haiku 4.5) - React specialist
+├─ test-engineer (Gemini Flash) - Testing
+├─ security-auditor (Gemini Flash) - Security
+└─ [5+ more specialists]
+
+OPENCODE (PERSONAL):
+├─ Sisyfreeus (GLM-4.7 FREE) - Primary agent
+├─ Planner-Sisyfreeus (GLM-4.7 FREE) - Planning
+├─ Builder-Sisyfreeus (MiniMax M2.1 FREE) - Implementation
+├─ rust-ai-engineer (GLM-4.7 FREE) - Rust specialist
+├─ python-ai-researcher (GLM-4.7 FREE) - Python specialist
+├─ gamedev-haxe (Gemini Flash) - Haxe specialist
+├─ oracle-free (Gemini Pro) - Premium reasoning
+├─ librarian-free (Gemini Flash) - Research
+└─ [10+ more agents]
+
+WORKSPACE DETECTION:
+════════════════════════════════════════════════════════════════
+
+CLAUDE (AUTO-DETECT BASED ON FILE PATH):
+  backend/**/*.php       → Load backend-laravel agent
+  frontend/**/*.tsx      → Load frontend-react-ts agent
+  types/**/*.ts          → Load api-designer agent
+
+OPENCODE (AUTO-DETECT BASED ON PROJECT PATH):
+  ~/Development/Personal/rust-*         → Load rust-ai-engineer
+  ~/Development/Personal/python-*       → Load python-ai-researcher
+  ~/Projects/2d-game/                   → Load gamedev-haxe
+
+SYNCING ACROSS MACHINES:
+════════════════════════════════════════════════════════════════
+
+MAKE CHANGE:
+  $ cd opencode-config
+  $ vim claude/agents.yaml           (edit any config)
+  $ git add . && git commit && git push
+
+OTHER MACHINES:
+  $ cd opencode-config
+  $ git pull                          (changes live immediately!)
+
+  Note: Symlinks already point to repo, no need to recreate them!
+
+COST BREAKDOWN:
+════════════════════════════════════════════════════════════════
+
+CLAUDE CODE (KATO):
+  Baseline Model: Haiku 4.5
+  - 73.3% SWE-bench (near-Sonnet quality)
+  - $1/$5 per 1M tokens (3x cheaper than Sonnet)
+  - 2x faster than Sonnet
+  - Extended thinking included
+
+  Estimated Monthly Cost: $40
+  (vs. ~$780 with naive Sonnet/Opus throughout)
+
+OPENCODE (PERSONAL):
+  Baseline Model: GLM-4.7 (FREE!)
+  - 73.8% SWE-bench
+  - 100% FREE via OpenCode
+  - Excellent reasoning (95.7% AIME)
+
+  Premium Fallback: Gemini Pro ($1.05 per 1M)
+  - Use only for complex architectural decisions
+  - Estimated monthly cost if needed: $5-10
+
+TOTAL ESTIMATED COST:
+  Claude Code:  $40/month (production work)
+  OpenCode:     FREE + $5-10/month optional
+  ────────────────────────────
+  Total:        $45-50/month (vs. $800+ without optimization)
+
+KEY BENEFITS:
+════════════════════════════════════════════════════════════════
+
+✓ SINGLE SOURCE OF TRUTH
+  One repo, two tools, zero duplicates
+  
+✓ CONTEXT-AWARE AGENTS
+  Automatically load right agents for right task
+  
+✓ LANGUAGE-SPECIFIC SPECIALISTS
+  rust-ai-engineer, python-ai-researcher, gamedev-haxe
+  
+✓ COST OPTIMIZED
+  95% cost savings with Haiku 4.5 default
+  FREE personal work with GLM-4.7
+  
+✓ EASY SYNCING
+  Push changes, pull on other machines
+  Symlinks ensure changes are live immediately
+  
+✓ WORKSPACE DETECTION
+  Both tools auto-detect context from file paths
+  
+✓ MULTI-AGENT TESTING
+  /multi-test, /review-worktrees, /integrate-worktrees
+
+NEXT STEPS:
+════════════════════════════════════════════════════════════════
+
+1. Run setup steps above (5-10 minutes)
+2. Test Claude Code with Kato repo
+3. Test OpenCode with personal project
+4. Push config to git repository
+5. Pull on other machines and verify
+
+See MIGRATION_GUIDE.md for detailed setup instructions!
+See IMPLEMENTATION_CHECKLIST.md for comprehensive plan!
+
+════════════════════════════════════════════════════════════════
+Version: 1.0 (Jan 2026) | Status: Ready for Deployment
+════════════════════════════════════════════════════════════════

@@ -1,0 +1,93 @@
+workflows:
+  monorepo-backend:
+    name: "Backend Laravel Development"
+    agents:
+      primary: Sisyphus
+      architect: Architect-Opus
+      specialist: backend-laravel
+      testing: test-engineer
+      review: reviewer
+    conventions:
+      orm: "eloquent"
+      testing: "phpunit/pest"
+      api: "REST + GraphQL"
+      migrations: "Laravel migrations"
+      auth: "Middleware-based"
+    patterns:
+      - database-migrations
+      - eloquent-relationships
+      - middleware-design
+      - service-container
+      - api-endpoints
+    description: "Workflow for Kato backend development using Laravel, Eloquent, migrations, middleware-based auth"
+
+  monorepo-frontend:
+    name: "Frontend React Development"
+    agents:
+      primary: Sisyphus
+      specialist: frontend-react-ts
+      ui-designer: frontend-ui-ux-engineer
+      testing: test-engineer
+      review: reviewer
+    conventions:
+      framework: "React 19"
+      types: "TypeScript strict"
+      styling: "Tailwind CSS"
+      testing: "Jest + React Testing Library"
+      routing: "Next.js app router"
+    patterns:
+      - hook-dependencies
+      - component-composition
+      - state-management
+      - typescript-strict-mode
+      - accessibility
+    description: "Workflow for Kato frontend development using React, TypeScript, Next.js, Tailwind"
+
+  api-contract:
+    name: "API Contract Development (Backend ↔ Frontend)"
+    agents:
+      primary: Sisyphus
+      backend-specialist: backend-laravel
+      frontend-specialist: frontend-react-ts
+      api-designer: api-designer
+      reviewer: reviewer
+    conventions:
+      contract: "REST/GraphQL schemas"
+      types: "Shared TypeScript definitions"
+      validation: "Zod/Laravel validation"
+      testing: "E2E contract testing"
+    patterns:
+      - type-safety
+      - schema-first-design
+      - error-handling-contracts
+      - pagination-standards
+    description: "Workflow for maintaining API contracts between Laravel backend and React frontend"
+
+  security-audit:
+    name: "Security Review"
+    agents:
+      primary: Sisyphus
+      auditor: security-auditor
+      reviewer: reviewer
+    focus:
+      - authentication
+      - authorization
+      - input-validation
+      - sql-injection
+      - xss-prevention
+      - csrf-protection
+    description: "Security-focused code review for Kato"
+
+  multi-test:
+    name: "Parallel Implementation Testing"
+    command: "/multi-test"
+    agents:
+      - Sisyphus
+      - Architect-Opus
+      - Coder-Sonnet45
+    description: "Test multiple implementation approaches in parallel, score and integrate the best"
+
+defaults:
+  primary-agent: Sisyphus
+  escalation-to: Architect-Opus
+  cost-strategy: "Default Haiku 4.5, escalate to Opus only for migrations/critical"

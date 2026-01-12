@@ -1,0 +1,180 @@
+{
+  "agents": {
+    "__comment_personal": "Personal projects only (Rust, Python, Haxe, misc tinkering)",
+    
+    "Sisyfreeus": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.3,
+      "mode": "primary",
+      "description": "Personal: PRIMARY CODER - 73.8% SWE-bench (GLM-4.7 FREE)"
+    },
+    
+    "Planner-Sisyfreeus": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Personal: ARCHITECT - 73.8% SWE + 95.7% AIME (excellent reasoning)"
+    },
+    
+    "Builder-Sisyfreeus": {
+      "model": "opencode/minimax-m2.1-free",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Personal: BUILDER - 74% SWE-bench (fastest among top performers)"
+    },
+
+    "__comment_language_specialists": "Language-specific agents for your personal stacks",
+    
+    "rust-ai-engineer": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Rust specialist - ownership, async/await, performance optimization"
+    },
+    
+    "python-ai-researcher": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Python ML/AI - PyTorch, JAX, algorithms, NumPy patterns"
+    },
+    
+    "gamedev-haxe": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "Personal: Heaps.io specialist - visual iteration, performance, asset pipelines"
+    },
+
+    "__comment_research": "Research and reasoning agents",
+    
+    "oracle-free": {
+      "model": "google/gemini-3-pro-preview",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Strategic reasoning - Gemini Pro ($0.35/$1.05 per 1M, reserve for complex decisions)"
+    },
+    
+    "reasoner-free": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Personal: Elite reasoning - 73.8% SWE + 95.7% AIME (GLM-4.7 FREE)"
+    },
+
+    "__comment_exploration": "Exploration and research agents",
+    
+    "librarian-free": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Personal: Fast research - find patterns in external code, libraries, OSS"
+    },
+    
+    "explore-free": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.0,
+      "mode": "subagent",
+      "description": "Personal: Codebase exploration - 1M context, find patterns in YOUR code"
+    },
+
+    "__comment_testing": "Testing and quality agents",
+    
+    "test-engineer-free": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Test generation - unit tests, integration tests, test planning"
+    },
+    
+    "debugger-free": {
+      "model": "opencode/grok-code",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Fast debugging - Grok Code 296 tok/s, terminal fluency"
+    },
+    
+    "performance-optimizer-free": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Performance optimization - profiling, bottleneck analysis, benchmarking"
+    },
+
+    "__comment_ui": "UI and creative agents",
+    
+    "frontend-free": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.7,
+      "mode": "subagent",
+      "description": "Personal: Creative UI - game dev UI, personal project styling (1M context)"
+    },
+    
+    "accessibility-specialist-free": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Accessibility - WCAG compliance for UIs"
+    },
+
+    "__comment_documentation": "Documentation and writing agents",
+    
+    "document-writer-free": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "Personal: Documentation - READMEs, guides, API docs (1M context)"
+    },
+    
+    "multimodal-looker-free": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Multimodal - analyze game assets, images, designs (1M context)"
+    },
+
+    "__comment_backups": "Fallback and backup agents",
+    
+    "rapid-coder-free": {
+      "model": "opencode/grok-code",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Speed demon - Grok Code (70.8% SWE, 296 tok/s, quick fixes)"
+    },
+    
+    "backup-coder-free": {
+      "model": "opencode/minimax-m2.1-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Backup coder - MiniMax M2.1 (74% SWE, FREE, fast)"
+    },
+    
+    "reviewer-free": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Code review - pattern matching, best practices (73.8% SWE)"
+    },
+    
+    "qa-specialist-free": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Personal: QA planning - test planning, edge case identification (73.8% SWE)"
+    }
+  },
+  
+  "sisyphus_agent": {
+    "disabled": false,
+    "default_builder_enabled": true,
+    "planner_enabled": true,
+    "replace_plan": true
+  },
+  
+  "cost_strategy": {
+    "philosophy": "Use FREE models for 90%+ of personal work (GLM-4.7, MiniMax M2.1, Grok Code)",
+    "escalation": "Reserve credits (google-gemini-3-pro) only for complex reasoning tasks",
+    "baseline_model": "Sisyfreeus (GLM-4.7 FREE)",
+    "monthly_budget": "FREE for most work; ~$5-10 for premium reasoning when needed"
+  }
+}

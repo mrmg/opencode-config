@@ -1,0 +1,224 @@
+agents:
+  # ============= MAIN AGENTS (HAIKU 4.5) =============
+  Sisyphus:
+    role: "Cost-optimized main agent"
+    model: "claude-haiku-4-5"
+    temperature: 0.3
+    capabilities:
+      - code-analysis
+      - implementation
+      - multi-file-coordination
+      - refactoring
+    description: "Primary agent for Kato work. Haiku 4.5: 73.3% SWE-bench, 2x faster than Sonnet, extended thinking."
+    
+  Planner-Sisyphus:
+    role: "Strategic planner with extended thinking"
+    model: "claude-haiku-4-5"
+    temperature: 0.3
+    capabilities:
+      - architecture
+      - planning
+      - task-breakdown
+      - reasoning
+    description: "Plan complex features and architectures. Haiku 4.5 extended thinking for deeper reasoning."
+    
+  Builder-Sisyphus:
+    role: "Fast implementation executor"
+    model: "claude-haiku-4-5"
+    temperature: 0.2
+    capabilities:
+      - implementation
+      - testing
+      - integration
+    description: "Execute implementations quickly. Haiku 4.5: 2x faster, near-Sonnet quality, cost-efficient."
+
+  # ============= PREMIUM AGENTS (ESCALATION ONLY) =============
+  Architect-Opus:
+    role: "Premium architecture specialist"
+    model: "claude-opus-4.5"
+    temperature: 0.2
+    capabilities:
+      - complex-architecture
+      - legacy-migrations
+      - production-critical
+      - system-design
+    description: "For production-critical work and complex legacy migrations. Opus 4.5: 80.9% SWE-bench (world's best!), worth the cost for critical decisions."
+
+  # ============= KATO STACK SPECIALISTS =============
+  backend-laravel:
+    role: "Laravel backend specialist"
+    model: "claude-haiku-4-5"
+    temperature: 0.2
+    specialization: "Laravel, Eloquent ORM, middleware, migrations, testing with PHPUnit/Pest"
+    capabilities:
+      - eloquent-patterns
+      - middleware-design
+      - database-architecture
+      - service-container
+      - artisan-commands
+    description: "Optimized for Laravel backend work. Knows Eloquent patterns, middleware chains, database design."
+    when-to-use: "When working in Kato backend/ directory"
+
+  frontend-react-ts:
+    role: "React/TypeScript specialist (Material-UI)"
+    model: "claude-haiku-4-5"
+    temperature: 0.3
+    specialization: "React 17, TypeScript, Material-UI, React Router v5, Redux state management, CSS-in-JS"
+    capabilities:
+      - react-hooks
+      - typescript-strict
+      - material-ui-components
+      - react-router-v5
+      - redux-patterns
+      - css-in-js-theming
+      - jest-testing
+    description: "Optimized for Kato's modern React apps (agency/atlas/landlord). Knows Material-UI patterns, Redux state flow, React Router v5."
+    when-to-use: "When working in ui/ directory (agency, atlas, landlord React apps)"
+
+  frontend-angularjs-legacy:
+    role: "AngularJS legacy specialist"
+    model: "claude-haiku-4-5"
+    temperature: 0.3
+    specialization: "AngularJS 1.5.11, UI Router, component API, directives, factories, promise-based async"
+    capabilities:
+      - angularjs-components
+      - angularjs-directives
+      - ui-router-patterns
+      - promise-based-async
+      - angular-factories-services
+      - gulp-webpack-build
+      - eslint-prettier-patterns
+    description: "Optimized for Kato's legacy AngularJS codebase. Knows component API, directives, UI Router, promise chains, build pipelines."
+    when-to-use: "When working in resources/assets/js/angular/ directory"
+
+  # ============= SPECIALIZED SUBAGENTS =============
+  test-engineer:
+    role: "Test generation and strategy"
+    model: "gemini-3-flash"
+    temperature: 0.2
+    capabilities:
+      - unit-testing
+      - integration-testing
+      - test-planning
+      - coverage-strategy
+    description: "Generate comprehensive test suites. Works with PHPUnit, Pest (backend), Jest + React Testing Library (React frontend)."
+
+  security-auditor:
+    role: "Security code review specialist"
+    model: "gemini-3-flash"
+    temperature: 0.1
+    capabilities:
+      - vulnerability-scanning
+      - auth-review
+      - sql-injection-prevention
+      - xss-prevention
+      - csrf-protection
+    description: "Review code for security issues. Knows Laravel middleware/authentication patterns, React/Material-UI security pitfalls, AngularJS legacy vulnerabilities."
+
+  database-architect:
+    role: "Database design specialist"
+    model: "gemini-3-flash"
+    temperature: 0.2
+    capabilities:
+      - schema-design
+      - normalization
+      - performance-optimization
+      - migration-planning
+    description: "Design database schemas. Understands Eloquent relationships and query optimization."
+
+  api-designer:
+    role: "API design specialist"
+    model: "gemini-3-flash"
+    temperature: 0.3
+    capabilities:
+      - rest-design
+      - graphql-design
+      - contract-definition
+      - versioning
+    description: "Design APIs for monorepo. Handles REST routes, integration between Laravel backend and React/AngularJS frontends."
+
+  devops-engineer:
+    role: "DevOps and infrastructure specialist"
+    model: "gemini-3-flash"
+    temperature: 0.3
+    capabilities:
+      - docker
+      - deployment
+      - ci-cd
+      - environment-management
+    description: "Handle Docker Compose, deployment, CI/CD for Kato's monorepo structure."
+
+  performance-optimizer:
+    role: "Performance optimization specialist"
+    model: "gemini-3-pro"
+    temperature: 0.2
+    capabilities:
+      - profiling
+      - bottleneck-analysis
+      - optimization-strategy
+      - benchmarking
+    description: "Analyze and optimize performance. Works with Laravel queries, React component re-renders (Material-UI), AngularJS digest cycles."
+
+  reviewer:
+    role: "Code review specialist"
+    model: "gemini-3-flash"
+    temperature: 0.2
+    capabilities:
+      - code-quality-review
+      - pattern-matching
+      - best-practices
+      - style-conformance
+    description: "Review code against Kato conventions and best practices."
+
+  qa-specialist:
+    role: "QA planning and strategy"
+    model: "gemini-3-flash"
+    temperature: 0.3
+    capabilities:
+      - test-planning
+      - edge-case-identification
+      - regression-testing
+      - user-story-validation
+    description: "Plan QA strategy for features and releases."
+
+  # ============= FALLBACK AGENTS =============
+  debugger:
+    role: "Debugging specialist"
+    model: "gemini-3-pro"
+    temperature: 0.2
+    capabilities:
+      - error-analysis
+      - stack-trace-parsing
+      - root-cause-analysis
+      - debugging-strategy
+    description: "Advanced debugging after 2+ failures. Use Sisyphus first, escalate here."
+
+  premium-fallback:
+    role: "Premium fallback when Haiku insufficient"
+    model: "gpt-4o"
+    temperature: 0.2
+    capabilities:
+      - complex-coding
+      - architectural-decisions
+      - multi-system-coordination
+    description: "Mid-tier fallback (cheaper than Opus, better than Haiku). Use when Haiku struggles."
+
+# ============= GLOBAL SETTINGS =============
+defaults:
+  context-size: 200k
+  extended-thinking: true
+  reasoning: "enabled"
+
+cost-optimization:
+  strategy: "Default to Haiku 4.5 (73.3% SWE), escalate to Opus only for migrations"
+  savings: "95% cost reduction vs. Sonnet/Opus baseline"
+  baseline-monthly: "$40 for Kato work"
+
+workspace:
+  name: "Kato - Monorepo Work Project"
+  path: "/home/mrmg/Development/Kato"
+  type: "monorepo"
+  stacks:
+    - backend: Laravel (PHP)
+    - frontend: React (TypeScript) + Angular (TypeScript legacy)
+    - integration: REST API + type-safe clients

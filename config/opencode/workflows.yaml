@@ -1,0 +1,94 @@
+workflows:
+  rust-ai:
+    name: "Rust AI Engineering"
+    agents:
+      primary: Sisyfreeus
+      specialist: rust-ai-engineer
+      researcher: reasoner-free
+      debugger: debugger-free
+      performance: performance-optimizer-free
+    conventions:
+      language: "Rust"
+      async-runtime: "tokio"
+      testing: "cargo test"
+      format: "rustfmt"
+      lint: "clippy"
+    patterns:
+      - ownership-system
+      - trait-design
+      - error-handling
+      - async-patterns
+      - unsafe-blocks
+    focus:
+      - algorithm-correctness
+      - memory-safety
+      - performance-optimization
+    description: "Workflow for Rust-based AI experiments and implementations"
+
+  python-ai:
+    name: "Python AI Research"
+    agents:
+      primary: Sisyfreeus
+      specialist: python-ai-researcher
+      researcher: reasoner-free
+      performance: performance-optimizer-free
+      explorer: librarian-free
+    conventions:
+      language: "Python"
+      version: "3.11+"
+      frameworks: ["PyTorch", "JAX", "NumPy", "Pandas"]
+      testing: "pytest"
+      format: "black"
+      lint: "ruff"
+    patterns:
+      - vectorization
+      - async-patterns
+      - gpu-optimization
+      - algorithm-implementation
+      - experimentation
+    focus:
+      - algorithm-correctness
+      - computational-efficiency
+      - numerical-stability
+    description: "Workflow for Python-based AI research and ML experiments"
+
+  gamedev-haxe:
+    name: "Haxe Game Development"
+    agents:
+      primary: Sisyfreeus
+      specialist: gamedev-haxe
+      ui-designer: frontend-free
+      performance: performance-optimizer-free
+      asset-analyzer: multimodal-looker-free
+    conventions:
+      language: "Haxe"
+      engine: "Heaps.io"
+      graphics: "H3D"
+      assets: "png, spritesheet format"
+      build: "hxml"
+    patterns:
+      - scene-architecture
+      - entity-management
+      - resource-loading
+      - input-handling
+      - performance-optimization
+    focus:
+      - frame-rate
+      - visual-quality
+      - asset-optimization
+      - gameplay-feel
+    description: "Workflow for 2D game development with Haxe/Heaps"
+
+  worktree-testing:
+    name: "Multi-Agent Parallel Testing"
+    command: "/multi-test"
+    agents:
+      - Sisyfreeus
+      - Planner-Sisyfreeus
+      - Builder-Sisyfreeus
+    description: "Test multiple implementation approaches in parallel, score and integrate best"
+
+defaults:
+  primary-agent: Sisyfreeus
+  cost-model: "FREE (GLM-4.7, MiniMax M2.1, Grok Code for 90%+ of work)"
+  escalation-reasoning: "oracle-free (reserved for complex decisions)"

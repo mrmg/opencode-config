@@ -1,0 +1,128 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "model": "anthropic/claude-3.5-haiku",
+  "autoupdate": true,
+  "plugin": [
+    "opencode-openai-codex-auth@latest",
+    "opencode-gemini-auth",
+    "oh-my-opencode",
+  ],
+   "agent": {
+     "1. Sisyfreeus": {
+       "description": "PRIMARY CODER - 73.8% SWE-bench (GLM-4.7, FREE, same as MiniMax!)",
+       "mode": "primary",
+       "model": "opencode/glm-4.7-free",
+       "temperature": 0.2
+     },
+     "2. Planner-Sisyfreeus": {
+       "description": "ARCHITECT - GLM-4.7 FREE (73.8% SWE + 95.7% AIME - EXCELLENT reasoning!)",
+       "mode": "primary",
+       "model": "opencode/glm-4.7-free",
+       "temperature": 0.2
+     },
+     "3. Builder-Sisyfreeus": {
+       "description": "BUILDER - 73.8% SWE-bench (GLM-4.7, FREE, excellent for implementation)",
+       "mode": "primary",
+       "model": "opencode/glm-4.7-free",
+       "temperature": 0.2
+     },
+     "4. Architect-Opus": {
+       "description": "ARCHITECT - Claude Opus 4.5 (80.9% SWE-bench - BEST OVERALL! First AI to beat humans)",
+       "mode": "primary",
+       "model": "anthropic/claude-opus-4-5-20251101",
+       "temperature": 0.2
+     },
+     "5. Strategist-GPT52": {
+       "description": "STRATEGIST - GPT-5.2 (80.0% SWE-bench Verified, 100% AIME, elite reasoning)",
+       "mode": "primary",
+       "model": "openai/gpt-5.2",
+       "temperature": 0.2
+     },
+     "6. Orchestrator-Gemini3": {
+       "description": "MULTIMODAL ORCHESTRATOR - Gemini 3 Pro (76.2% SWE-bench, excellent multimodal)",
+       "mode": "primary",
+       "model": "google/gemini-3-pro-preview",
+       "temperature": 0.2
+     },
+     "7. Coder-GLM47": {
+       "description": "PRIMARY CODER - GLM-4.7 FREE via OpenCode, excellent coding agent",
+       "mode": "primary",
+       "model": "opencode/glm-4.7-free",
+       "temperature": 0.2
+     },
+     "8. Coder-Sonnet45": {
+       "description": "BALANCED CODER - Claude Sonnet 4.5 (excellent balance of cost/performance)",
+       "mode": "secondary",
+       "model": "anthropic/claude-sonnet-4-5-20250929",
+       "temperature": 0.2
+     },
+     "9. RapidCoder-Flash": {
+       "description": "RAPID CODER - Gemini 2.5 Flash (fast, cost-effective for quick tasks)",
+       "mode": "secondary",
+       "model": "google/gemini-2.5-flash",
+       "temperature": 0.2
+     },
+     "10. Coder-GPT51": {
+       "description": "STRONG CODER - GPT-5.1 (strong coding, better value than GPT-5.2)",
+       "mode": "secondary",
+       "model": "openai/gpt-5.1",
+       "temperature": 0.2
+     },
+     "11. Reasoner-o4mini": {
+       "description": "REASONING SPECIALIST - o4-mini (strong reasoning, cheaper than o3)",
+       "mode": "secondary",
+       "model": "openai/o4-mini",
+       "temperature": 0.2
+     },
+     "12. Grok-Coder": {
+       "description": "FREE ALTERNATIVE CODER - Grok Code (FREE, quick fixes, backup coder)",
+       "mode": "primary",
+       "model": "opencode/grok-code",
+       "temperature": 0.2
+     },
+     "13. MiniMax-M21": {
+       "description": "FREE BACKUP CODER - MiniMax M2.1 FREE via OpenCode",
+       "mode": "primary",
+       "model": "opencode/minimax-m2.1-free",
+       "temperature": 0.2
+     }
+   },
+    "2. Planner-Sisyfreeus": {
+      "description": "ARCHITECT - GLM-4.7 FREE (73.8% SWE + 95.7% AIME - EXCELLENT reasoning!)",
+      "mode": "primary",
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2
+    },
+    "3. Builder-Sisyfreeus": {
+      "description": "BUILDER - 73.8% SWE-bench (GLM-4.7, FREE, excellent for implementation)",
+      "mode": "primary",
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2
+    }
+  },
+  
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--isolated=true"],
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking",
+      ],
+    },
+    "atlassian": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.atlassian.com/v1/sse",
+      ],
+    },
+  }
+}

@@ -1,0 +1,138 @@
+workspace:
+  name: "Kato - Production Monorepo"
+  description: "Full-stack Laravel backend + mixed frontend (AngularJS legacy + React modern)"
+  path: "/home/mrmg/Development/Kato/kato"
+  type: "monorepo"
+  
+  stacks:
+    backend:
+      language: "PHP"
+      framework: "Laravel 11"
+      root: "backend/"
+      entry-point: "backend/artisan"
+      key-directories:
+        - app/
+        - database/
+        - routes/
+        - config/
+      conventions:
+        - eloquent-orm
+        - blade-templates
+        - artisan-commands
+        - middleware-based-auth
+        - service-container
+        - seeders
+      testing:
+        framework: "PHPUnit / Pest"
+        location: "backend/tests/"
+      key-files:
+        - backend/artisan
+        - backend/composer.json
+        - backend/.env.example
+        - backend/database/migrations/
+      
+    frontend-modern:
+      language: "TypeScript"
+      framework: "React 17"
+      build: "Webpack"
+      root: "ui/"
+      entry-point: "ui/package.json"
+      apps:
+        - agency (main app)
+        - atlas (workspace management)
+        - landlord (property management)
+      key-directories:
+        - ui/agency/
+        - ui/atlas/
+        - ui/landlord/
+        - ui/shared/
+      conventions:
+        - react-hooks
+        - typescript-strict
+        - material-ui-css-in-js
+        - react-router-v5
+        - redux-state-management
+      testing:
+        framework: "Jest + React Testing Library"
+        location: "ui/**/__tests__/"
+      styling:
+        framework: "Material-UI (@material-ui/core v4)"
+        location: "Material-UI theme system"
+      key-files:
+        - ui/package.json
+        - ui/tsconfig.json
+        - ui/agency/App.tsx
+        - ui/shared/components/
+    
+    frontend-legacy:
+      language: "JavaScript"
+      framework: "AngularJS 1.5.11"
+      build: "Gulp + Webpack"
+      root: "resources/assets/js/angular/"
+      entry-point: "resources/assets/js/angular/"
+      apps:
+        - agents-society
+        - viewing-tour
+        - marketing
+      key-directories:
+        - resources/assets/js/angular/agents-society/
+        - resources/assets/js/angular/viewing-tour/
+        - resources/assets/js/angular/marketing/
+        - resources/assets/js/angular/_shared/
+      conventions:
+        - angularjs-component-api
+        - angularjs-directives
+        - ui-router-patterns
+        - promise-based-async
+      testing:
+        framework: "ESLint + Prettier (code quality)"
+        location: "resources/assets/js/angular/"
+      key-files:
+        - package.json (root)
+        - resources/assets/js/angular/_shared/
+  
+  integration:
+    api-contract: "Laravel REST API → React/Angular TypeScript clients"
+    shared: "types/ → shared TypeScript definitions"
+    deployment: "Docker Compose (backend + frontend)"
+    monorepo-structure: "Root package.json orchestrates both stacks"
+
+  context-routing:
+    - path-pattern: "app/**"
+      workflow: "monorepo-backend"
+      default-agents: [Sisyphus, backend-laravel, test-engineer]
+      
+    - path-pattern: "ui/**"
+      workflow: "monorepo-frontend"
+      default-agents: [Sisyphus, frontend-react-ts, frontend-ui-ux-engineer]
+      
+    - path-pattern: "resources/assets/js/angular/**"
+      workflow: "monorepo-frontend"
+      default-agents: [Sisyphus, frontend-angularjs-legacy]
+      
+    - path-pattern: "database/**"
+      workflow: "monorepo-backend"
+      default-agents: [Sisyphus, database-architect]
+      
+    - path-pattern: "routes/**"
+      workflow: "api-contract"
+      default-agents: [Sisyphus, api-designer, backend-laravel]
+
+  cost-optimization:
+    strategy: "Haiku 4.5 for 90% of work, Opus for migrations/complex architecture"
+    monthly-budget: "$40 for all Kato work"
+    baseline-model: Sisyphus
+    escalation-path: Architect-Opus
+
+  performance-targets:
+    backend:
+      response-time: "< 200ms p95"
+      database-queries: "< 3 queries per endpoint"
+    frontend-modern:
+      tti: "< 3s"
+      fcp: "< 1.5s"
+      core-web-vitals: "Pass all"
+    frontend-legacy:
+      tti: "< 4s"
+      fcp: "< 2s"
+      note: "AngularJS 1.5.11 - realistic targets given framework constraints"
