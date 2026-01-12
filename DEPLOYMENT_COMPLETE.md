@@ -9,7 +9,7 @@
 ## What's Deployed
 
 ### 1. Claude Code Configuration
-**Location:** `~/.config/claude` → symlink to `/home/mrmg/Development/Build/opencode-config/config/claude`
+**Location:** `~/.claude` → symlink to `/home/mrmg/Development/Build/opencode-config/config/claude`
 
 **Files:**
 - `agents.yaml` - 17 specialized agents for Kato monorepo work
@@ -82,7 +82,7 @@ opencode-config/
 
 ```bash
 # Claude Code config
-~/.config/claude → /home/mrmg/Development/Build/opencode-config/config/claude
+~/.claude → /home/mrmg/Development/Build/opencode-config/config/claude
 ✓ agents.yaml accessible
 ✓ workspace.yaml accessible
 ✓ workflows.yaml accessible
@@ -244,22 +244,22 @@ If tools don't auto-detect configs, specify manually:
 ### Symlinks not found
 ```bash
 # Verify symlinks exist
-ls -la ~/.config/claude
+ls -la ~/.claude
 ls -la ~/.config/opencode
 
 # If missing, recreate:
-ln -sf /home/mrmg/Development/Build/opencode-config/config/claude ~/.config/claude
+ln -sf /home/mrmg/Development/Build/opencode-config/config/claude ~/.claude
 ln -sf /home/mrmg/Development/Build/opencode-config/config/opencode ~/.config/opencode
 ```
 
 ### Config not loading
 ```bash
 # Check file permissions
-ls -la ~/.config/claude/agents.yaml
+ls -la ~/.claude/agents.yaml
 ls -la ~/.config/opencode/agents.json
 
 # Verify YAML/JSON syntax
-python3 -c "import yaml; yaml.safe_load(open('/home/mrmg/.config/claude/agents.yaml'))"
+python3 -c "import yaml; yaml.safe_load(open('/home/mrmg/.claude/agents.yaml'))"
 python3 -c "import json; json.load(open('/home/mrmg/.config/opencode/agents.json'))"
 ```
 

@@ -43,7 +43,7 @@ Claude Code looks for agents in `~/.claude/agents.yaml` or `~/.claude/agents/` d
 
 ### New File Structure for Claude
 
-Claude looks for config at `~/.claude/` (or `~/.config/claude/` on some systems).
+Claude Code looks for config at `~/.claude/`.
 
 Since you're using linking, the structure in the repo is:
 ```
@@ -54,9 +54,7 @@ opencode-config/claude/
 └── .clauderc                      # Claude runtime config
 
 # Then link on each machine:
-# ln -s /path/to/opencode-config/claude ~/.claude
-# OR
-# ln -s /path/to/opencode-config/claude ~/.config/claude
+# ln -s /path/to/opencode-config/config/claude ~/.claude
 ```
 
 #### `agents.yaml` Format
@@ -507,7 +505,7 @@ cd opencode-config && git pull
 #### Step 2: Create Claude symlink
 ```bash
 # Claude looks for config at ~/.claude
-ln -sf /home/mrmg/Development/Build/opencode-config/claude ~/.claude
+ln -sf /home/mrmg/Development/Build/opencode-config/config/claude ~/.claude
 
 # Verify:
 ls -la ~/.claude/agents.yaml

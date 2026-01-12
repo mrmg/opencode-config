@@ -19,8 +19,8 @@ Both tools are linked to directories in this repo using symlinks, enabling:
 
 ```
 opencode-config/
-├── config/                          # Configurations for ~/.config/ symlinks
-│   ├── claude/                      # → Symlink to ~/.config/claude
+├── config/                          # Configurations for symlinks
+│   ├── claude/                      # → Symlink to ~/.claude
 │   │   ├── agents.yaml
 │   │   ├── workflows.yaml
 │   │   ├── workspace.yaml
@@ -60,13 +60,13 @@ opencode-config/
 cd /home/mrmg/Development/Build
 git clone <repo-url> opencode-config
 
-# 2. Create symlinks (both in ~/.config/)
+# 2. Create symlinks
 mkdir -p ~/.config
-ln -sf /home/mrmg/Development/Build/opencode-config/config/claude ~/.config/claude
+ln -sf /home/mrmg/Development/Build/opencode-config/config/claude ~/.claude
 ln -sf /home/mrmg/Development/Build/opencode-config/config/opencode ~/.config/opencode
 
 # 3. Verify both exist
-ls -la ~/.config/claude/agents.yaml
+ls -la ~/.claude/agents.yaml
 ls -la ~/.config/opencode/agents.json
 ```
 
