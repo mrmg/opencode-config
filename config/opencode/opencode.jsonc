@@ -1,0 +1,309 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "model": "",
+  "autoupdate": true,
+  
+  // ============================================================================
+  // KATO / WORK AGENTS (Anthropic Only)
+  // ============================================================================
+  "agent": {
+    
+    // Primary Work Agents - Anthropic via GitHub Copilot
+    "Kato-Architect": {
+      "model": "github-copilot/claude-opus-4.5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Kato: ARCHITECT - Claude Opus 4.5 (80.9% SWE-bench - Best overall for complex work)"
+    },
+    
+    "Kato-Coder": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Kato: BALANCED CODER - Claude Sonnet 4.5 (77.2% SWE-bench, excellent balance)"
+    },
+    
+    "Kato-Strategist": {
+      "model": "anthropic/claude-opus-4.5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Kato: STRATEGIC PLANNING - Direct Anthropic for sensitive work decisions"
+    },
+    
+    // Work Subagents - Anthropic
+    "kato-reviewer": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Kato: Code review and quality assurance"
+    },
+    
+    "kato-documenter": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Kato: Technical documentation for work projects"
+    },
+    
+    // ============================================================================
+    // PERSONAL AGENTS (GitHub, Gemini, OpenAI, Cursor)
+    // ============================================================================
+    
+    // Primary Personal Agents - GitHub Copilot
+    "Personal-Architect": {
+      "model": "github-copilot/claude-opus-4.5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Personal: ARCHITECT - Claude Opus 4.5 via GitHub Copilot (complex personal projects)"
+    },
+    
+    "Personal-Coder-GPT": {
+      "model": "openai/gpt-5.1-codex-max",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Personal: GPT-5.1 Codex Max - OpenAI for coding tasks"
+    },
+    
+    "Personal-Coder-Cursor": {
+      "model": "cursor/claude-sonnet-4.5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Personal: Cursor integration - Balanced coding"
+    },
+    
+    // Personal Subagents - Mix of paid services
+    "personal-reasoner": {
+      "model": "openai/gpt-5.2",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Personal: Elite reasoning - GPT-5.2 (80% SWE-bench, 100% AIME)"
+    },
+    
+    "personal-rapid": {
+      "model": "google/gemini-3-flash",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Rapid tasks - Gemini 3 Flash (fast, cost-effective)"
+    },
+    
+    "personal-multimodal": {
+      "model": "google/gemini-3-pro-preview",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Multimodal - Gemini 3 Pro (76.2% SWE-bench, images, diagrams)"
+    },
+    
+    "personal-explorer": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.0,
+      "mode": "subagent",
+      "description": "Personal: Codebase exploration - Gemini Flash (1M context)"
+    },
+    
+    "personal-librarian": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Personal: Research - Gemini Flash for external docs/libraries"
+    },
+    
+    "personal-frontend": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.7,
+      "mode": "subagent",
+      "description": "Personal: UI/UX - Gemini Flash for creative design work"
+    },
+    
+    "personal-documenter": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "Personal: Documentation - READMEs, guides, API docs"
+    },
+    
+    // Language Specialists - Personal projects
+    "rust-engineer": {
+      "model": "openai/gpt-5.1-codex-max",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Rust specialist - ownership, async/await, performance"
+    },
+    
+    "python-ai": {
+      "model": "openai/gpt-5.1-codex-max",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Python ML/AI - PyTorch, JAX, algorithms"
+    },
+    
+    "gamedev-haxe": {
+      "model": "google/gemini-3-flash-preview",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "Personal: Heaps.io specialist - game dev, asset pipelines"
+    },
+    
+    // ============================================================================
+    // OLLAMA AGENTS (Private, Local, Limited Context)
+    // ============================================================================
+    
+    "Ollama-Private": {
+      "model": "ollama-local/deepseek-r1:8b",
+      "temperature": 0.3,
+      "mode": "primary",
+      "description": "Ollama: PRIVATE CODER - DeepSeek R1 8B (100% private, local, limited 16GB context)"
+    },
+    
+    "Ollama-Fast": {
+      "model": "ollama-local/ministral-3:14b",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Ollama: FAST LOCAL - Ministral 3 14B (quick local tasks, private)"
+    },
+    
+    "ollama-helper": {
+      "model": "ollama-local/deepseek-r1:8b",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Ollama: Helper agent for simple private tasks (small context)"
+    },
+    
+    // ============================================================================
+    // FREE TIER AGENTS (Fallback)
+    // ============================================================================
+    
+    "Free-Primary": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.3,
+      "mode": "primary",
+      "description": "Free: PRIMARY CODER - GLM-4.7 (73.8% SWE-bench, FREE)"
+    },
+    
+    "Free-Builder": {
+      "model": "opencode/minimax-m2.1-free",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Free: BUILDER - MiniMax M2.1 (74% SWE-bench, FREE, fast)"
+    },
+    
+    "Free-Rapid": {
+      "model": "opencode/grok-code",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Free: RAPID CODER - Grok Code (70.8% SWE, 296 tok/s, via GitHub)"
+    },
+    
+    // Free Subagents
+    "free-reasoner": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Free: Elite reasoning - GLM-4.7 (73.8% SWE + 95.7% AIME)"
+    },
+    
+    "free-tester": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Free: Test generation - unit tests, integration tests"
+    },
+    
+    "free-debugger": {
+      "model": "opencode/grok-code",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Free: Fast debugging - Grok Code (296 tok/s)"
+    },
+    
+    "free-optimizer": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Free: Performance optimization - profiling, bottlenecks"
+    },
+    
+    "free-reviewer": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Free: Code review - pattern matching, best practices"
+    },
+    
+    "free-qa": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Free: QA planning - test planning, edge cases"
+    }
+  },
+  
+  // ============================================================================
+  // PLUGINS
+  // ============================================================================
+  "plugin": [
+    "oh-my-opencode-slim@latest",
+    "opencode-anthropic-auth@latest",
+    "opencode-openai-codex-auth@latest",
+    "opencode-gemini-auth",
+    "yet-another-opencode-cursor-auth"
+  ],
+  
+  // ============================================================================
+  // MCP SERVERS
+  // ============================================================================
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--isolated=true"]
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "atlassian": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.atlassian.com/v1/sse"
+      ]
+    }
+  },
+  
+  // ============================================================================
+  // PROVIDERS
+  // ============================================================================
+  "provider": {
+    "cursor": {
+      "name": "Cursor"
+    },
+    "ollama-local": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (LAN)",
+      "options": {
+        "baseURL": "http://192.168.0.131:11434/v1"
+      },
+      "models": {
+        "deepseek-r1:8b": {
+          "name": "DeepSeek R1 8B (local)"
+        },
+        "ministral-3:14b": {
+          "name": "Ministral 3 14B (local)"
+        }
+      }
+    }
+  },
+  
+  // ============================================================================
+  // SERVER CONFIG (for oh-my-opencode-slim tmux integration)
+  // ============================================================================
+  "server": {
+    "port": 4096
+  }
+}
