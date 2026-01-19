@@ -55,15 +55,40 @@ opencode-config/
 
 ### One-Time Setup (Per Machine)
 
+#### For AI Assistants
+
+Copy and paste this to your AI assistant to automatically set up this repository:
+
+```
+Please set up my AI configuration repository:
+
+1. Clone the repository:
+   cd ~/Development/Build
+   git clone https://github.com/mrmg/opencode-config.git
+
+2. Create the necessary symlinks:
+   mkdir -p ~/.config
+   ln -sf ~/Development/Build/opencode-config/config/claude ~/.claude
+   ln -sf ~/Development/Build/opencode-config/config/opencode ~/.config/opencode
+
+3. Verify the setup:
+   ls -la ~/.claude/agents.yaml
+   ls -la ~/.config/opencode/agents.json
+
+Both commands should show symlinks pointing to the repository.
+```
+
+#### Manual Setup
+
 ```bash
-# 1. Clone this repo (if not already done)
-cd /home/mrmg/Development/Build
-git clone <repo-url> opencode-config
+# 1. Clone this repo
+cd ~/Development/Build
+git clone https://github.com/mrmg/opencode-config.git
 
 # 2. Create symlinks
 mkdir -p ~/.config
-ln -sf /home/mrmg/Development/Build/opencode-config/config/claude ~/.claude
-ln -sf /home/mrmg/Development/Build/opencode-config/config/opencode ~/.config/opencode
+ln -sf ~/Development/Build/opencode-config/config/claude ~/.claude
+ln -sf ~/Development/Build/opencode-config/config/opencode ~/.config/opencode
 
 # 3. Verify both exist
 ls -la ~/.claude/agents.yaml
