@@ -81,42 +81,42 @@
     },
     
     "personal-rapid": {
-      "model": "google/gemini-3-flash",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: Rapid tasks - Gemini 3 Flash (fast, cost-effective)"
     },
     
     "personal-multimodal": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: Multimodal - Gemini 3 Pro (76.2% SWE-bench, images, diagrams)"
     },
     
     "personal-explorer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.0,
       "mode": "subagent",
       "description": "Personal: Codebase exploration - Gemini Flash (1M context)"
     },
     
     "personal-librarian": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Personal: Research - Gemini Flash for external docs/libraries"
     },
     
     "personal-frontend": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.7,
       "mode": "subagent",
       "description": "Personal: UI/UX - Gemini Flash for creative design work"
     },
     
     "personal-documenter": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Documentation - READMEs, guides, API docs"
@@ -138,7 +138,7 @@
     },
     
     "gamedev-haxe": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Heaps.io specialist - game dev, asset pipelines"

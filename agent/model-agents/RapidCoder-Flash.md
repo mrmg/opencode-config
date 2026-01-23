@@ -1,5 +1,5 @@
 ---
-model: google/gemini-3-flash
+model: github-copilot/gpt-5-mini
 temperature: 0.2
 description: "RAPID CODER - Gemini 3 Flash (fast, cost-effective for quick tasks)"
 ---

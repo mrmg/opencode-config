@@ -1,5 +1,5 @@
 ---
-model: google/gemini-3-pro-preview
+model: github-copilot/gpt-5-mini
 temperature: 0.2
 description: "MULTIMODAL ORCHESTRATOR - Gemini 3 Pro (76.2% SWE-bench, excellent multimodal)"
 ---

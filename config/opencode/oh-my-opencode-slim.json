@@ -31,35 +31,35 @@
     // Librarian - External Knowledge Retrieval
     // Uses Gemini Flash for fast, cost-effective research
     "librarian": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1
     },
     
     // Explorer - Codebase Reconnaissance
     // Uses Gemini Flash with 1M context for exploring YOUR code
     "explore": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.0
     },
     
     // Frontend Designer - UI/UX Excellence
     // Uses Gemini Flash for creative UI work
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.7
     },
     
     // Document Writer - Technical Documentation
     // Uses Gemini Flash for documentation
     "document-writer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.5
     },
     
     // Multimodal Viewer - Image & Visual Analysis
     // Uses Gemini Pro for multimodal capabilities
     "multimodal-looker": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2
     }
   },

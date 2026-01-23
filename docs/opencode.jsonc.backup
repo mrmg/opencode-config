@@ -42,7 +42,7 @@
      "6. Orchestrator-Gemini3": {
        "description": "MULTIMODAL ORCHESTRATOR - Gemini 3 Pro (76.2% SWE-bench, excellent multimodal)",
        "mode": "primary",
-       "model": "google/gemini-3-pro-preview",
+       "model": "github-copilot/gpt-5-mini",
        "temperature": 0.2
      },
      "7. Coder-GLM47": {
@@ -60,7 +60,7 @@
      "9. RapidCoder-Flash": {
        "description": "RAPID CODER - Gemini 2.5 Flash (fast, cost-effective for quick tasks)",
        "mode": "secondary",
-       "model": "google/gemini-2.5-flash",
+       "model": "github-copilot/gpt-5-mini",
        "temperature": 0.2
      },
      "10. Coder-GPT51": {

@@ -63,7 +63,7 @@
     },
     
     "Personal-Coder-Flash": {
-      "model": "google/gemini-3-flash",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Personal: FLASH CODER - Gemini 3 Flash (78% SWE, 0.33 credits - best value)"
@@ -93,42 +93,42 @@
     },
     
     "personal-rapid": {
-      "model": "google/gemini-3-flash",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: Rapid tasks - Gemini 3 Flash (78% SWE, 0.33 credits)"
     },
     
     "personal-multimodal": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: Multimodal - Gemini Pro (images, diagrams)"
     },
     
     "personal-explorer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.0,
       "mode": "subagent",
       "description": "Personal: Codebase exploration - Gemini Flash (1M context)"
     },
     
     "personal-librarian": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Personal: Research - Gemini Flash (external docs/libraries)"
     },
     
     "personal-frontend": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.7,
       "mode": "subagent",
       "description": "Personal: UI/UX - Gemini Flash (creative design)"
     },
     
     "personal-documenter": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Documentation - READMEs, guides, API docs"
@@ -151,7 +151,7 @@
     },
     
     "gamedev-haxe": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Heaps.io specialist - game dev, assets"
