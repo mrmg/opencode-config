@@ -13,148 +13,184 @@
     // ========================================================================
     // KATO / WORK AGENTS (Anthropic Only)
     // ========================================================================
-    "__comment_kato": "Work projects - Anthropic Claude models only",
+    "__comment_kato": "Work projects - Anthropic Claude models only (OpenCode Black)",
     
     "Kato-Architect": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "opencode/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Kato: ARCHITECT - Claude Opus 4.5 (80.9% SWE-bench - Best for complex work)"
+      "description": "Kato: ARCHITECT - Claude Opus 4.5 (80.9% SWE-bench)"
     },
     
     "Kato-Coder": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "opencode/claude-sonnet-4-5",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Kato: BALANCED CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
     },
     
     "Kato-Strategist": {
-      "model": "anthropic/claude-opus-4.5",
+      "model": "opencode/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Kato: STRATEGIC PLANNING - Direct Anthropic for sensitive decisions"
+      "description": "Kato: STRATEGIC PLANNING - Claude Opus 4.5"
     },
     
     "kato-reviewer": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "opencode/claude-sonnet-4-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: Code review and quality assurance"
     },
     
     "kato-documenter": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "opencode/claude-sonnet-4-5",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Kato: Technical documentation for work projects"
     },
     
     // ========================================================================
-    // PERSONAL AGENTS (GitHub, Gemini, OpenAI, Cursor - Daily Driver)
+    // COPILOT AGENTS (GitHub Copilot Ecosystem)
     // ========================================================================
-    "__comment_personal": "Personal projects - mix of paid services",
+    "__comment_copilot": "GitHub Copilot ecosystem agents",
     
-    "Personal-Architect": {
-      "model": "openai/gpt-5.2",
+    "CoPilot-Architect": {
+      "model": "github-copilot/gpt-5.2",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Personal: ARCHITECT - GPT-5.2 (80% SWE, 1 credit vs Opus 4.5 @ 3 credits)"
+      "description": "CoPilot: ARCHITECT - GPT-5.2 (80% SWE-bench)"
     },
     
-    "Personal-Coder-Flash": {
-      "model": "google/gemini-3-flash",
+    "CoPilot-Coder": {
+      "model": "github-copilot/claude-sonnet-4.5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Personal: FLASH CODER - Gemini 3 Flash (78% SWE, 0.33 credits - best value)"
+      "description": "CoPilot: CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
     },
     
-    "Personal-Coder-GPT": {
-      "model": "openai/gpt-5.1-codex-max",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Personal: GPT-5.1 Codex Max - OpenAI for coding"
-    },
-    
-    "Personal-Coder-Cursor": {
-      "model": "cursor/claude-sonnet-4.5",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Personal: Cursor integration - Balanced coding"
-    },
-    
-    "__comment_personal_subagents": "Personal subagents - specialized tasks",
-    
-    "personal-reasoner": {
-      "model": "openai/gpt-5.2",
+    "copilot-reasoner": {
+      "model": "github-copilot/gpt-5.2",
       "temperature": 0.1,
       "mode": "subagent",
-      "description": "Personal: Elite reasoning - GPT-5.2 (80% SWE, 100% AIME)"
+      "description": "CoPilot: Elite reasoning - GPT-5.2"
     },
     
-    "personal-rapid": {
-      "model": "google/gemini-3-flash",
+    "copilot-rapid": {
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Personal: Rapid tasks - Gemini 3 Flash (78% SWE, 0.33 credits)"
+      "description": "CoPilot: Rapid tasks - Gemini 3 Flash (78% SWE-bench)"
     },
     
-    "personal-multimodal": {
-      "model": "google/gemini-3-pro-preview",
+    "copilot-multimodal": {
+      "model": "github-copilot/gemini-3-pro-preview",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Personal: Multimodal - Gemini Pro (images, diagrams)"
+      "description": "CoPilot: Multimodal - Gemini 3 Pro"
     },
     
-    "personal-explorer": {
-      "model": "google/gemini-3-flash-preview",
+    "copilot-explorer": {
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.0,
       "mode": "subagent",
-      "description": "Personal: Codebase exploration - Gemini Flash (1M context)"
+      "description": "CoPilot: Codebase exploration - Gemini Flash"
     },
     
-    "personal-librarian": {
-      "model": "google/gemini-3-flash-preview",
+    "copilot-librarian": {
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.1,
       "mode": "subagent",
-      "description": "Personal: Research - Gemini Flash (external docs/libraries)"
+      "description": "CoPilot: Research - Gemini Flash"
     },
     
-    "personal-frontend": {
-      "model": "google/gemini-3-flash-preview",
-      "temperature": 0.7,
+    // ========================================================================
+    // OPENCODE AGENTS (OpenCode Black Ecosystem)
+    // ========================================================================
+    "__comment_opencode": "OpenCode Black ecosystem agents",
+    
+    "OpenCode-Architect": {
+      "model": "opencode/gpt-5.2",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "OpenCode: ARCHITECT - GPT-5.2 (80% SWE-bench)"
+    },
+    
+    "OpenCode-Coder": {
+      "model": "opencode/claude-sonnet-4-5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "OpenCode: CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
+    },
+    
+    "opencode-reasoner": {
+      "model": "opencode/gpt-5.2",
+      "temperature": 0.1,
       "mode": "subagent",
-      "description": "Personal: UI/UX - Gemini Flash (creative design)"
+      "description": "OpenCode: Elite reasoning - GPT-5.2"
     },
     
-    "personal-documenter": {
-      "model": "google/gemini-3-flash-preview",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Personal: Documentation - READMEs, guides, API docs"
-    },
-    
-    "__comment_language_specialists": "Personal language specialists",
-    
-    "rust-engineer": {
-      "model": "openai/gpt-5.1-codex-max",
+    "opencode-rapid": {
+      "model": "opencode/gemini-3-flash",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Personal: Rust specialist - ownership, async/await"
+      "description": "OpenCode: Rapid tasks - Gemini 3 Flash (78% SWE-bench)"
+    },
+    
+    "opencode-multimodal": {
+      "model": "opencode/gemini-3-pro",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "OpenCode: Multimodal - Gemini 3 Pro"
+    },
+    
+    "opencode-explorer": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.0,
+      "mode": "subagent",
+      "description": "OpenCode: Codebase exploration - Gemini Flash"
+    },
+    
+    "opencode-librarian": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "OpenCode: Research - Gemini Flash"
+    },
+    
+    "opencode-frontend": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.7,
+      "mode": "subagent",
+      "description": "OpenCode: UI/UX - Gemini Flash"
+    },
+    
+    "opencode-documenter": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "OpenCode: Documentation - Gemini Flash"
+    },
+    
+    "rust-engineer": {
+      "model": "opencode/gpt-5.2-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "OpenCode: Rust specialist"
     },
     
     "python-ai": {
-      "model": "openai/gpt-5.1-codex-max",
+      "model": "opencode/gpt-5.2-codex",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Personal: Python ML/AI - PyTorch, JAX, algorithms"
+      "description": "OpenCode: Python ML/AI specialist"
     },
     
     "gamedev-haxe": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "opencode/gemini-3-flash",
       "temperature": 0.5,
       "mode": "subagent",
-      "description": "Personal: Heaps.io specialist - game dev, assets"
+      "description": "OpenCode: Heaps.io specialist"
     },
     
     // ========================================================================
@@ -186,20 +222,20 @@
     // ========================================================================
     // FREE TIER AGENTS (Fallback)
     // ========================================================================
-    "__comment_free": "Free models - OpenCode + GitHub Copilot free tier",
+    "__comment_free": "Free models - OpenCode + Google Free Tier",
     
     "Free-Primary": {
-      "model": "opencode/glm-4.7-free",
+      "model": "opencode/glm-4.7",
       "temperature": 0.3,
       "mode": "primary",
-      "description": "Free: PRIMARY CODER - GLM-4.7 (73.8% SWE-bench, FREE)"
+      "description": "Free: PRIMARY CODER - GLM-4.7 (73.8% SWE-bench)"
     },
     
     "Free-Builder": {
-      "model": "opencode/minimax-m2.1-free",
+      "model": "opencode/glm-4.6",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Free: BUILDER - MiniMax M2.1 (74% SWE-bench, fast)"
+      "description": "Free: BUILDER - GLM-4.6"
     },
     
     "Free-Rapid": {
@@ -209,74 +245,66 @@
       "description": "Free: RAPID - Grok Code (70.8% SWE, 296 tok/s)"
     },
     
-    "Free-GPT5-Mini": {
-      "model": "github-copilot/gpt-5-mini",
+    "Free-Gemini-Lite": {
+      "model": "opencode/gemini-3-flash",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Free: GPT-5 Mini - GitHub Copilot (60% SWE, FREE)"
-    },
-    
-    "Free-Raptor": {
-      "model": "github-copilot/raptor-mini",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Free: Raptor Mini - GitHub Copilot (fast, FREE)"
+      "description": "Free: Gemini 3 Flash"
     },
     
     "__comment_free_subagents": "Free tier subagents",
     
     "free-reasoner": {
-      "model": "opencode/glm-4.7-free",
+      "model": "opencode/glm-4.7",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Free: Reasoning - GLM-4.7 (73.8% SWE + 95.7% AIME)"
     },
     
     "free-tester": {
-      "model": "opencode/glm-4.7-free",
+      "model": "opencode/glm-4.7",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Free: Test generation - unit/integration tests"
+      "description": "Free: Test generation"
     },
     
     "free-debugger": {
       "model": "opencode/grok-code",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Free: Debugging - Grok Code (296 tok/s)"
+      "description": "Free: Debugging - Grok Code"
     },
     
     "free-optimizer": {
-      "model": "opencode/glm-4.7-free",
+      "model": "opencode/glm-4.7",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Free: Performance optimization"
     },
     
     "free-reviewer": {
-      "model": "opencode/glm-4.7-free",
+      "model": "opencode/glm-4.7",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Free: Code review - best practices"
+      "description": "Free: Code review"
     },
     
     "free-qa": {
-      "model": "opencode/glm-4.7-free",
+      "model": "opencode/glm-4.7",
       "temperature": 0.3,
       "mode": "subagent",
-      "description": "Free: QA planning - edge cases"
+      "description": "Free: QA planning"
     }
   },
   
   // ========================================================================
   // USAGE PHILOSOPHY
   // ========================================================================
-  "usage_philosophy": {
-    "kato_work": "Use Anthropic Claude models exclusively for work projects",
-    "personal_daily": "Use Gemini 3 Flash (0.33 credits, 78% SWE) for most coding. GPT-5.2 for complex reasoning (1 credit). OpenAI Codex Max for specialists.",
-    "personal_value": "Gemini 3 Flash = best value (78% SWE @ 0.33 credits beats Sonnet 4.5 @ 1 credit)",
-    "ollama_private": "Use local Ollama for 100% private work (limited 16GB context)",
-    "free_fallback": "GLM-4.7 (73.8%) best free model, GPT-5 mini (60%) for variety, Raptor mini as backup",
-    "oh_my_opencode_slim": "Pantheon agents use Personal tier models (see oh-my-opencode-slim.json)"
-  }
+    "usage_philosophy": {
+      "kato_work": "Use Anthropic Claude models exclusively for work projects (OpenCode Black)",
+      "copilot_tier": "GitHub Copilot ecosystem - Primary for Pantheon agents (Orchestrator, Oracle, etc.) for maximum usage headroom",
+      "opencode_tier": "OpenCode Black ecosystem - GPT-5.2 for reasoning, Sonnet 4.5 for coding, Gemini 3 Flash for speed",
+      "ollama_private": "Use local Ollama for 100% private work (limited 16GB context)",
+      "free_fallback": "GLM-4.7 (73.8%) best free model, Grok Code (70.8%) for rapid debugging"
+    }
 }

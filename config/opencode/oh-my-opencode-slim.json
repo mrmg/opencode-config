@@ -1,88 +1,41 @@
 {
-  // ============================================================================
-  // oh-my-opencode-slim Configuration
-  // ============================================================================
-  // This configures the Pantheon agents from oh-my-opencode-slim
-  // Using Personal tier models (GitHub, Gemini, OpenAI) for day-to-day work
-  // ============================================================================
-  
   "agents": {
-    // Orchestrator - The Supreme Commander
-    // Uses GitHub Copilot Claude Opus 4.5 for best overall performance
     "orchestrator": {
       "model": "github-copilot/claude-opus-4.5",
       "temperature": 0.2
     },
-    
-    // Code Simplicity Reviewer - The Minimalist
-    // Uses OpenAI GPT-5.1 Codex Max for code quality
     "code-simplicity-reviewer": {
-      "model": "openai/gpt-5.1-codex-max",
+      "model": "github-copilot/gpt-5.2-codex",
       "temperature": 0.2
     },
-    
-    // Oracle - Strategic Advisor
-    // Uses OpenAI GPT-5.2 for elite reasoning
     "oracle": {
-      "model": "openai/gpt-5.2",
+      "model": "github-copilot/gpt-5.2",
       "temperature": 0.2
     },
-    
-    // Librarian - External Knowledge Retrieval
-    // Uses Gemini Flash for fast, cost-effective research
     "librarian": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.1
     },
-    
-    // Explorer - Codebase Reconnaissance
-    // Uses Gemini Flash with 1M context for exploring YOUR code
     "explore": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.0
     },
-    
-    // Frontend Designer - UI/UX Excellence
-    // Uses Gemini Flash for creative UI work
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.7
     },
-    
-    // Document Writer - Technical Documentation
-    // Uses Gemini Flash for documentation
     "document-writer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gemini-3-flash-preview",
       "temperature": 0.5
     },
-    
-    // Multimodal Viewer - Image & Visual Analysis
-    // Uses Gemini Pro for multimodal capabilities
     "multimodal-looker": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gemini-3-pro-preview",
       "temperature": 0.2
     }
   },
-  
-  // ============================================================================
-  // Tmux Integration - Watch your agents work in real-time
-  // ============================================================================
   "tmux": {
     "enabled": true,
     "layout": "main-vertical",
     "main_pane_size": 60
-  },
-  
-  // ============================================================================
-  // Disabled Agents (optional)
-  // ============================================================================
-  // Uncomment to disable specific agents:
-  // "disabled_agents": ["multimodal-looker", "code-simplicity-reviewer"],
-  
-  // ============================================================================
-  // Disabled MCPs (optional)
-  // ============================================================================
-  // The plugin includes websearch, context7, and grep_app MCPs by default
-  // Uncomment to disable specific MCPs:
-  // "disabled_mcps": ["websearch", "grep_app"]
+  }
 }
