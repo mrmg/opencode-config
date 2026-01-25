@@ -389,8 +389,20 @@
         "deepseek-r1:8b": {
           "name": "DeepSeek R1 8B (local)"
         },
+        "llama3.2:latest": {
+          "name": "Ben's' Model from 1947 (local)"
+        },
         "ministral-3:14b": {
           "name": "Ministral 3 14B (local)"
+        },
+        "sam860/LFM2:1.2b": {
+          "name": "LFM2:1.2b (local)"
+        },
+        "arifulislamat/snoop-dogg:4b": {
+          "name": "Snoop Dogg:4b (local)"
+        },
+        "MrScratchcat22/GLM-4.7-Flash-REAP-23B-A3B:latest": {
+          "name": "GLM-4.7-Flash-REAP-23B-A3B:latest (local)"
         }
       }
     }
