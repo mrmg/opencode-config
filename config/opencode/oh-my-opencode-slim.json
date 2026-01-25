@@ -13,23 +13,23 @@
       "temperature": 0.2
     },
     "librarian": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1
     },
     "explore": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.0
     },
     "frontend-ui-ux-engineer": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.7
     },
     "document-writer": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.5
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2
     }
   },

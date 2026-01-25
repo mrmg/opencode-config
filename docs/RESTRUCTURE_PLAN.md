@@ -273,14 +273,14 @@ opencode-config/opencode/
       "description": "Personal: Python ML/AI (algorithms, PyTorch, JAX)"
     },
     "gamedev-haxe": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Heaps.io specialist (visual, performance)"
     },
     
     "oracle-free": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: Strategic reasoning ($0.35/$1.05 per 1M)"
@@ -293,13 +293,13 @@ opencode-config/opencode/
     },
     
     "librarian-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Personal: Fast research"
     },
     "explore-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.0,
       "mode": "subagent",
       "description": "Personal: Codebase exploration (1M context)"
@@ -325,13 +325,13 @@ opencode-config/opencode/
     },
     
     "frontend-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.7,
       "mode": "subagent",
       "description": "Personal: Creative UI (1M context)"
     },
     "document-writer-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Documentation"

@@ -26,25 +26,25 @@
     },
 
     "oracle": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "description": "Kato: Strategic reasoning (Gemini Pro: 14x cheaper than GPT-5.2! $0.35/$1.05 per 1M)"
     },
 
     "librarian": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1,
       "description": "Kato: Fast research (Gemini 3 Flash: 76% SWE, newest Flash model!)"
     },
 
     "explore": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.0,
       "description": "Kato: FAST 1M context exploration (Gemini 3 Flash: 76% SWE, newest!)"
     },
 
     "codebase-analyzer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Kato: Analyze huge codebase sections (Gemini 3 Flash: 76% SWE, 1M context)",
@@ -52,67 +52,67 @@
     },
 
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.7,
       "description": "Kato: Creative UI (Gemini 3 Flash: 76% SWE, 1M context)"
     },
 
     "document-writer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.5,
       "description": "Kato: Fast docs (Gemini 3 Flash: 1M context)"
     },
 
     "multimodal-looker": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "description": "Kato: Multimodal (Gemini 3 Flash: 1M context)"
     },
 
     "test-engineer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: Test generation (Gemini 3 Flash: 76% SWE)"
     },
 
     "debugger": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: Debugging after 2+ failures (Gemini Pro: 14x cheaper than GPT-5.2!)"
     },
 
     "refactorer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: Quick refactoring (Gemini 3 Flash: 76% SWE)"
     },
 
     "security-auditor": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Kato: Security review (Gemini 3 Flash: 76% SWE)"
     },
 
     "performance-optimizer": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: Performance optimization (Gemini Pro: 14x cheaper than GPT-5.2!)"
     },
 
     "database-architect": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: DB design (Gemini 3 Flash: 76% SWE)"
     },
 
     "devops-engineer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Kato: DevOps (Gemini 3 Flash: fast and powerful)"
@@ -126,21 +126,21 @@
     },
 
     "api-designer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Kato: API design (Gemini 3 Flash: 76% SWE)"
     },
 
     "reviewer": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Kato: Code review (Gemini 3 Flash: 76% SWE)"
     },
 
     "qa-specialist": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Kato: QA planning (Gemini 3 Flash: 76% SWE)"
@@ -193,7 +193,7 @@
     },
 
     "oracle-free": {
-      "model": "google/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: STRATEGIC REASONING - Gemini 3 Pro (76.2% SWE, $0.35/$1.05 per 1M - cheap!)"
@@ -207,14 +207,14 @@
     },
 
     "librarian-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Personal: Fast research (Gemini 3 Flash: 76% SWE)"
     },
 
     "large-context-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: LARGE CONTEXT - 1M tokens, Gemini 3 Flash (76% SWE)"
@@ -235,28 +235,28 @@
     },
 
     "explore-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.0,
       "mode": "subagent",
       "description": "Personal: Blazing fast with 1M context! (Gemini 3 Flash: 76% SWE)"
     },
 
     "frontend-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.7,
       "mode": "subagent",
       "description": "Personal: Fast creative UI (Gemini 3 Flash: 76% SWE, 1M context)"
     },
 
     "document-writer-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.5,
       "mode": "subagent",
       "description": "Personal: Fast docs (Gemini 3 Flash: 1M context)"
     },
 
     "multimodal-looker-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: Multimodal (Gemini 3 Flash: 1M context)"
@@ -333,7 +333,7 @@
     },
 
     "accessibility-specialist-free": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Personal: WCAG compliance (Gemini 3 Flash: 76% SWE)"

@@ -69,6 +69,13 @@
       "description": "CoPilot: CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
     },
     
+    "Personal-Coder-Flash": {
+      "model": "github-copilot/gpt-5-mini",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Personal: Fast coder - GPT-5 mini"
+    },
+    
     "copilot-reasoner": {
       "model": "github-copilot/gpt-5.2",
       "temperature": 0.1,
@@ -77,31 +84,87 @@
     },
     
     "copilot-rapid": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "CoPilot: Rapid tasks - Gemini 3 Flash (78% SWE-bench)"
+      "description": "CoPilot: Rapid tasks - GPT-5 mini"
     },
     
     "copilot-multimodal": {
-      "model": "github-copilot/gemini-3-pro-preview",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "CoPilot: Multimodal - Gemini 3 Pro"
+      "description": "CoPilot: Multimodal - GPT-5 mini"
     },
     
     "copilot-explorer": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.0,
       "mode": "subagent",
-      "description": "CoPilot: Codebase exploration - Gemini Flash"
+      "description": "CoPilot: Codebase exploration - GPT-5 mini"
     },
     
     "copilot-librarian": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "github-copilot/gpt-5-mini-preview",
       "temperature": 0.1,
       "mode": "subagent",
-      "description": "CoPilot: Research - Gemini Flash"
+      "description": "CoPilot: Research - GPT-5 mini"
+    },
+    
+    // ========================================================================
+    // PERSONAL AGENTS
+    // ========================================================================
+    "__comment_personal": "Personal project agents",
+    
+    "personal-rapid": {
+      "model": "github-copilot/gpt-5-mini",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Rapid tasks - GPT-5 mini"
+    },
+    
+    "personal-multimodal": {
+      "model": "github-copilot/gpt-5-mini",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Multimodal - GPT-5 mini"
+    },
+    
+    "personal-explorer": {
+      "model": "github-copilot/gpt-5-mini-preview",
+      "temperature": 0.0,
+      "mode": "subagent",
+      "description": "Personal: Codebase exploration - GPT-5 mini"
+    },
+    
+    "personal-librarian": {
+      "model": "github-copilot/gpt-5-mini-preview",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Personal: Research - GPT-5 mini"
+    },
+    
+    "personal-frontend": {
+      "model": "github-copilot/gpt-5-mini-preview",
+      "temperature": 0.7,
+      "mode": "subagent",
+      "description": "Personal: UI/UX - GPT-5 mini"
+    },
+    
+    "personal-documenter": {
+      "model": "github-copilot/gpt-5-mini-preview",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "Personal: Documentation - READMEs, guides, API docs"
+    },
+    
+    "__comment_language_specialists": "Personal language specialists",
+    
+    "personal-rust-engineer": {
+      "model": "openai/gpt-5.1-codex-max",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Personal: Rust specialist"
     },
     
     // ========================================================================
