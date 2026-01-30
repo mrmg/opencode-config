@@ -1,257 +1,98 @@
+// ============================================================================
+// CONSOLIDATED OPENCODE CONFIGURATION
+// ============================================================================
+// Single source of truth for all agent configurations
+// Naming convention: lowercase-kebab-case
+// Model format: use dashes consistently (e.g., claude-opus-4-5, not 4.5)
+// ============================================================================
+
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "opencode",
-  "model": "",
+  "model": "kato-coder",
   "autoupdate": true,
-  
+
   // ============================================================================
-  // KATO / WORK AGENTS (Anthropic Only)
+  // PRIMARY AGENTS - WORK (Kato - Anthropic via OpenCode)
   // ============================================================================
   "agent": {
-    
-    // Primary Work Agents - Anthropic via OpenCode Black
-    "Kato-Architect": {
+    // Work Primary Agents
+    "kato-architect": {
       "model": "opencode/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Kato: ARCHITECT - Claude Opus 4.5 (80.9% SWE-bench)"
+      "description": "Kato: Architecture & Design - Claude Opus 4.5 (80.9% SWE-bench)"
     },
     
-    "Kato-Coder": {
+    "kato-coder": {
       "model": "opencode/claude-sonnet-4-5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Kato: BALANCED CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
+      "description": "Kato: Implementation - Claude Sonnet 4.5 (77.2% SWE-bench)"
     },
     
-    "Kato-Strategist": {
+    "kato-strategist": {
       "model": "opencode/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Kato: STRATEGIC PLANNING - Claude Opus 4.5"
+      "description": "Kato: Strategic Planning - Claude Opus 4.5"
     },
     
-    // Work Subagents - Anthropic
-    "kato-reviewer": {
-      "model": "opencode/claude-sonnet-4-5",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Kato: Code review and quality assurance"
-    },
-    
-    "kato-documenter": {
-      "model": "opencode/claude-sonnet-4-5",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Kato: Technical documentation for work projects"
-    },
-    
-    // ============================================================================
-    // COPILOT AGENTS (GitHub Copilot Ecosystem)
-    // ============================================================================
-    
-    "CoPilot-Architect": {
-      "model": "github-copilot/gpt-5.2",
+    "kato-typescript": {
+      "model": "opencode/kimi-k2.5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "CoPilot: ARCHITECT - GPT-5.2 (80% SWE-bench)"
+      "description": "Kato: TypeScript & React specialist - Kimi K2.5 (Moonshot AI) rivals Claude Opus 4.5"
     },
-    
-    "CoPilot-Coder": {
-      "model": "github-copilot/claude-sonnet-4.5",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "CoPilot: CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
-    },
-    
-    "copilot-reasoner": {
-      "model": "github-copilot/gpt-5.2",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "CoPilot: Elite reasoning - GPT-5.2"
-    },
-    
-    "copilot-rapid": {
-      "model": "github-copilot/gpt-5-mini",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "CoPilot: Rapid tasks - GPT-5 mini"
-    },
-    
-    "copilot-multimodal": {
-      "model": "github-copilot/gpt-5-mini",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "CoPilot: Multimodal - GPT-5 mini"
-    },
-    
-    "copilot-explorer": {
-      "model": "github-copilot/gpt-5-mini-preview",
-      "temperature": 0.0,
-      "mode": "subagent",
-      "description": "CoPilot: Codebase exploration - GPT-5 mini"
-    },
-    
-    "copilot-librarian": {
-      "model": "github-copilot/gpt-5-mini-preview",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "CoPilot: Research - GPT-5 mini"
-    },
-    
+
     // ============================================================================
-    // PERSONAL AGENTS
+    // PRIMARY AGENTS - PERSONAL
     // ============================================================================
     
-    "personal-rapid": {
-      "model": "github-copilot/gpt-5-mini",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Personal: Rapid tasks - GPT-5 mini"
-    },
-    
-    "personal-multimodal": {
-      "model": "github-copilot/gpt-5-mini",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Personal: Multimodal - GPT-5 mini"
-    },
-    
-    "personal-explorer": {
-      "model": "github-copilot/gpt-5-mini-preview",
-      "temperature": 0.0,
-      "mode": "subagent",
-      "description": "Personal: Codebase exploration - GPT-5 mini"
-    },
-    
-    "personal-librarian": {
-      "model": "github-copilot/gpt-5-mini-preview",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Personal: Research - GPT-5 mini"
-    },
-    
-    "personal-frontend": {
-      "model": "github-copilot/gpt-5-mini-preview",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Personal: UI/UX - GPT-5 mini"
-    },
-    
-    "personal-documenter": {
-      "model": "github-copilot/gpt-5-mini-preview",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Personal: Documentation - READMEs, guides, API docs"
-    },
-    
-    "personal-rust-engineer": {
-      "model": "openai/gpt-5.1-codex-max",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Personal: Rust specialist"
-    },
-    
-    // ============================================================================
-    // OPENCODE AGENTS (OpenCode Black Ecosystem)
-    // ============================================================================
-    
-    "OpenCode-Architect": {
+    "personal-architect": {
       "model": "opencode/gpt-5.2",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "OpenCode: ARCHITECT - GPT-5.2 (80% SWE-bench)"
+      "description": "Personal: Architecture & Design - GPT-5.2 (80% SWE-bench)"
     },
     
-    "OpenCode-Coder": {
+    "personal-coder": {
       "model": "opencode/claude-sonnet-4-5",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "OpenCode: CODER - Claude Sonnet 4.5 (77.2% SWE-bench)"
+      "description": "Personal: Implementation - Claude Sonnet 4.5"
     },
     
-    "opencode-reasoner": {
+    "personal-strategist": {
       "model": "opencode/gpt-5.2",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "OpenCode: Elite reasoning - GPT-5.2"
-    },
-    
-    "opencode-rapid": {
-      "model": "opencode/gemini-3-flash-preview",
       "temperature": 0.2,
-      "mode": "subagent",
-      "description": "OpenCode: Rapid tasks - Gemini 3 Flash (78% SWE-bench)"
+      "mode": "primary",
+      "description": "Personal: Strategic Planning - GPT-5.2"
     },
     
-    "opencode-multimodal": {
-      "model": "opencode/gemini-3-pro-preview",
+    // ============================================================================
+    // ORCHESTRATOR
+    // ============================================================================
+    
+    "orchestrator": {
+      "model": "github-copilot/gpt-5.2",
       "temperature": 0.2,
-      "mode": "subagent",
-      "description": "OpenCode: Multimodal - Gemini 3 Pro"
-    },
-    
-    "opencode-explorer": {
-      "model": "opencode/gemini-3-flash-preview",
-      "temperature": 0.0,
-      "mode": "subagent",
-      "description": "OpenCode: Codebase exploration - Gemini Flash"
-    },
-    
-    "opencode-librarian": {
-      "model": "opencode/gemini-3-flash-preview",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "OpenCode: Research - Gemini Flash"
-    },
-    
-    "opencode-frontend": {
-      "model": "opencode/gemini-3-flash-preview",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "OpenCode: UI/UX - Gemini Flash"
-    },
-    
-    "opencode-documenter": {
-      "model": "opencode/gemini-3-flash-preview",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "OpenCode: Documentation - Gemini Flash"
-    },
-    
-    "rust-engineer": {
-      "model": "opencode/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "OpenCode: Rust specialist"
-    },
-    
-    "python-ai": {
-      "model": "opencode/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "OpenCode: Python ML/AI specialist"
-    },
-    
-    "gamedev-haxe": {
-      "model": "opencode/gemini-3-flash-preview",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "OpenCode: Heaps.io specialist"
+      "mode": "primary",
+      "description": "Orchestrator: Manage subagents - Use '<model>' subagent to do this task"
     },
     
     // ============================================================================
     // OLLAMA AGENTS (Private, Local, Limited Context)
     // ============================================================================
     
-    "Ollama-Private": {
-      "model": "ollama-local/deepseek-r1:8b",
+    "ollama-private": {
+      "model": "ollama-local/hf.co/bartowski/zai-org_GLM-4.7-Flash-GGUF:Q2_K_L",
       "temperature": 0.3,
       "mode": "primary",
-      "description": "Ollama: PRIVATE CODER - DeepSeek R1 8B (100% private, local, limited 16GB context)"
+      "description": "Ollama: PRIVATE CODER - GLM-4.7 Flash-GGUF Q2 KL"
     },
     
-    "Ollama-Fast": {
+    "ollama-fast": {
       "model": "ollama-local/ministral-3:14b",
       "temperature": 0.2,
       "mode": "primary",
@@ -259,78 +100,331 @@
     },
     
     "ollama-helper": {
-      "model": "ollama-local/deepseek-r1:8b",
+      "model": "ollama-local/hf.co/bartowski/zai-org_GLM-4.7-Flash-GGUF:Q2_K_L",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Ollama: Helper agent for simple private tasks (small context)"
     },
     
     // ============================================================================
-    // FREE TIER AGENTS (Fallback)
+    // FREE TIER AGENTS (Fallback when others unavailable)
     // ============================================================================
     
-    "Free-Primary": {
+    "free-primary": {
       "model": "opencode/glm-4.7",
       "temperature": 0.3,
       "mode": "primary",
       "description": "Free: PRIMARY CODER - GLM-4.7 (73.8% SWE-bench)"
     },
     
-    "Free-Builder": {
-      "model": "opencode/glm-4.6",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Free: BUILDER - GLM-4.6"
-    },
-    
-    "Free-Rapid": {
+    "free-rapid": {
       "model": "opencode/grok-code",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Free: RAPID CODER - Grok Code (70.8% SWE, 296 tok/s)"
     },
     
-    // Free Subagents
-    "free-reasoner": {
-      "model": "opencode/glm-4.7",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Free: Elite reasoning - GLM-4.7 (73.8% SWE + 95.7% AIME)"
-    },
+    // ============================================================================
+    // SPECIALIST SUBAGENTS (Task-specific agents that delegate to best models)
+    // ============================================================================
     
-    "free-tester": {
-      "model": "opencode/glm-4.7",
+    "security-reviewer": {
+      "model": "opencode/gpt-5.2",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Free: Test generation - unit tests, integration tests"
+      "description": "Security review: vulnerability assessment, threat modeling, best practices"
     },
     
-    "free-debugger": {
+    "librarian": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Librarian: Documentation research, library lookup, API documentation"
+    },
+    
+    "explorer": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.0,
+      "mode": "subagent",
+      "description": "Explorer: Codebase exploration, finding code patterns, file search"
+    },
+    
+    "reviewer": {
+      "model": "opencode/kimi-k2-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Code review: Pattern matching, best practices, quality assurance (Kimi K2.5 - best for TS)"
+    },
+    
+    "documenter": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.5,
+      "mode": "subagent",
+      "description": "Documenter: READMEs, API docs, technical documentation"
+    },
+    
+    "typescript-specialist": {
+      "model": "opencode/kimi-k2-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "TypeScript specialist: Type safety, advanced patterns, refactoring (Kimi K2.5 - best for TS)"
+    },
+    
+    "frontend": {
+      "model": "opencode/kimi-k2-5",
+      "temperature": 0.7,
+      "mode": "subagent",
+      "description": "Frontend: UI/UX design, component architecture, styling (Kimi K2.5 - best for TS/React)"
+    },
+    
+    "tester": {
+      "model": "opencode/kimi-k2-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Tester: Unit tests, integration tests, test coverage (Kimi K2.5 - best for TS test code)"
+    },
+    
+    "debugger": {
       "model": "opencode/grok-code",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Free: Fast debugging - Grok Code (296 tok/s)"
+      "description": "Debugger: Fast debugging, error analysis (Grok Code - 296 tok/s)"
     },
     
-    "free-optimizer": {
-      "model": "opencode/glm-4.7",
+    "optimizer": {
+      "model": "opencode/gpt-5.2-codex",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Free: Performance optimization - profiling, bottlenecks"
+      "description": "Optimizer: Performance optimization, profiling, bottlenecks"
     },
     
-    "free-reviewer": {
-      "model": "opencode/glm-4.7",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Free: Code review - pattern matching, best practices"
-    },
-    
-    "free-qa": {
+    "qa": {
       "model": "opencode/glm-4.7",
       "temperature": 0.3,
       "mode": "subagent",
-      "description": "Free: QA planning - test planning, edge cases"
+      "description": "QA: Test planning, edge cases, quality planning"
+    },
+    
+    "multimodal": {
+      "model": "opencode/gemini-3-pro",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Multimodal: Image analysis, visual tasks"
+    },
+    
+    "release-notes": {
+      "model": "opencode/gemini-3-pro",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Release notes: Changelog generation, PR summaries, version documentation"
+    },
+    
+    "refactorer": {
+      "model": "opencode/kimi-k2-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Refactorer: Mechanical cleanup, code restructuring, simplification (Kimi K2.5 - best for TS)"
+    },
+    
+    "reasoner": {
+      "model": "opencode/gpt-5.2",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Reasoner: Complex problem solving, analysis, deep reasoning"
+    },
+    
+    "rapid": {
+      "model": "opencode/gpt-5-nano",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Rapid: Quick tasks, simple operations, fast responses"
+    },
+    
+    // ============================================================================
+    // MODEL SUBAGENTS (Direct model access via orchestrator)
+    // ============================================================================
+    
+    // --- Anthropic Models ---
+    "claude-opus-4-5": {
+      "model": "opencode/claude-opus-4-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Opus 4.5 (Anthropic)"
+    },
+    
+    "claude-sonnet-4-5": {
+      "model": "opencode/claude-sonnet-4-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Sonnet 4.5 (Anthropic)"
+    },
+    
+    "claude-sonnet-4": {
+      "model": "opencode/claude-sonnet-4",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Sonnet 4 (Anthropic)"
+    },
+    
+    "claude-opus-4-1": {
+      "model": "opencode/claude-opus-4-1",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Opus 4.1 (Anthropic)"
+    },
+    
+    "claude-haiku-4-5": {
+      "model": "opencode/claude-haiku-4-5",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Model: Claude Haiku 4.5 (Anthropic)"
+    },
+    
+    "claude-3-5-haiku": {
+      "model": "opencode/claude-3-5-haiku",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Model: Claude 3.5 Haiku (Anthropic)"
+    },
+    
+    // --- OpenAI/GPT Models ---
+    "gpt-5-2": {
+      "model": "opencode/gpt-5.2",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.2 (OpenAI)"
+    },
+    
+    "gpt-5-2-codex": {
+      "model": "opencode/gpt-5.2-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.2 Codex (OpenAI)"
+    },
+    
+    "gpt-5-1": {
+      "model": "opencode/gpt-5.1",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 (OpenAI)"
+    },
+    
+    "gpt-5-1-codex": {
+      "model": "opencode/gpt-5.1-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 Codex (OpenAI)"
+    },
+    
+    "gpt-5-1-codex-max": {
+      "model": "opencode/gpt-5.1-codex-max",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 Codex Max (OpenAI)"
+    },
+    
+    "gpt-5-1-codex-mini": {
+      "model": "opencode/gpt-5.1-codex-mini",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 Codex Mini (OpenAI)"
+    },
+    
+    "gpt-5": {
+      "model": "opencode/gpt-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5 (OpenAI)"
+    },
+    
+    "gpt-5-codex": {
+      "model": "opencode/gpt-5-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5 Codex (OpenAI)"
+    },
+    
+    "gpt-5-nano": {
+      "model": "opencode/gpt-5-nano",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5 Nano (OpenAI)"
+    },
+    
+    // --- Gemini Models ---
+    "gemini-3-pro": {
+      "model": "opencode/gemini-3-pro",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Gemini 3 Pro (Google)"
+    },
+    
+    "gemini-3-flash": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Gemini 3 Flash (Google)"
+    },
+    
+    // --- GLM Models ---
+    "glm-4-7": {
+      "model": "opencode/glm-4.7",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Model: GLM-4.7"
+    },
+    
+    "glm-4-6": {
+      "model": "opencode/glm-4.6",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GLM-4.6"
+    },
+    
+    // --- Kimi Models ---
+    "kimi-k2-5": {
+      "model": "opencode/kimi-k2.5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Kimi K2.5 (Moonshot AI) - Best for TypeScript, rivals Claude Opus 4.5"
+    },
+    
+    "kimi-2-5": {
+      "model": "opencode/kimi-2.5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Kimi 2.5 (Moonshot AI)"
+    },
+    
+    "kimi-k2": {
+      "model": "opencode/kimi-k2",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Kimi K2 (Moonshot AI)"
+    },
+    
+    // --- Minimax Models ---
+    "minimax-m2-1": {
+      "model": "opencode/minimax-m2.1",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: MiniMax M2.1"
+    },
+    
+    // --- Qwen Models ---
+    "qwen3-coder": {
+      "model": "opencode/qwen3-coder",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Qwen3 Coder"
+    },
+    
+    // --- OpenCode Specific ---
+    "big-pickle": {
+      "model": "opencode/big-pickle",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Big Pickle (OpenCode)"
     }
   },
   
@@ -383,11 +477,11 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Ollama (LAN)",
       "options": {
-        "baseURL": "http://192.168.0.131:11434/v1"
+        "baseURL": "http://forge.grffn.me:11434/v1"
       },
       "models": {
-        "deepseek-r1:8b": {
-          "name": "DeepSeek R1 8B (local)"
+        "hf.co/bartowski/zai-org_GLM-4.7-Flash-GGUF:Q2_K_L": {
+          "name": "GLM-4.7-Flash Q2 KL"
         },
         "llama3.2:latest": {
           "name": "Ben's' Model from 1947 (local)"

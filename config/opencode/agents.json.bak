@@ -1,0 +1,291 @@
+{
+  // ============================================================================
+  // SIMPLIFIED AGENT CONFIGURATION
+  // ============================================================================
+  // Primary Agents: 3 Kato (Anthropic) + 1 Orchestrator
+  // Secondary Agents: 3 CoPilot + All Available Models as subagents
+  // Usage: "Use <model-name> subagent to do this task"
+  // ============================================================================
+  
+  "agents": {
+    // =======================================================================
+    // PRIMARY AGENTS - Kato (Anthropic Only)
+    // =======================================================================
+    
+    "Kato-Architect": {
+      "model": "opencode/claude-opus-4-5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Kato: Architecture & Design - Claude Opus 4.5 (80.9% SWE-bench)"
+    },
+    
+    "Kato-Coder": {
+      "model": "opencode/claude-sonnet-4-5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Kato: Implementation - Claude Sonnet 4.5 (77.2% SWE-bench)"
+    },
+    
+    "Kato-Strategist": {
+      "model": "opencode/claude-opus-4-5",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Kato: Strategic Planning - Claude Opus 4.5"
+    },
+    
+    // =======================================================================
+    // PRIMARY AGENT - Orchestrator
+    // =======================================================================
+    
+    "Orchestrator": {
+      "model": "github-copilot/gpt-5.2",
+      "temperature": 0.2,
+      "mode": "primary",
+      "description": "Orchestrator: Manage subagents - Use <model> subagent to do this task"
+    },
+    
+    // =======================================================================
+    // SECONDARY AGENTS - CoPilot (3 key agents)
+    // =======================================================================
+    
+    "copilot-reasoner": {
+      "model": "github-copilot/gpt-5.2",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "CoPilot: Complex reasoning - GPT-5.2"
+    },
+    
+    "copilot-rapid": {
+      "model": "github-copilot/gpt-5-mini",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "CoPilot: Fast tasks - GPT-5 mini"
+    },
+    
+    "copilot-coder": {
+      "model": "github-copilot/claude-sonnet-4-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "CoPilot: Coding - Claude Sonnet 4.5"
+    },
+    
+    // =======================================================================
+    // SUBAGENTS - All Available Models (Use: "Use <name> to do this task")
+    // =======================================================================
+    
+    // --- Anthropic/Claude Models ---
+    "claude-opus-4-5": {
+      "model": "opencode/claude-opus-4-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Opus 4.5 (Anthropic)"
+    },
+    
+    "claude-sonnet-4-5": {
+      "model": "opencode/claude-sonnet-4-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Sonnet 4.5 (Anthropic)"
+    },
+    
+    "claude-sonnet-4": {
+      "model": "opencode/claude-sonnet-4",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Sonnet 4 (Anthropic)"
+    },
+    
+    "claude-opus-4-1": {
+      "model": "opencode/claude-opus-4-1",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Claude Opus 4.1 (Anthropic)"
+    },
+    
+    "claude-haiku-4-5": {
+      "model": "opencode/claude-haiku-4-5",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Model: Claude Haiku 4.5 (Anthropic)"
+    },
+    
+    "claude-3-5-haiku": {
+      "model": "opencode/claude-3-5-haiku",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Model: Claude 3.5 Haiku (Anthropic)"
+    },
+    
+    "big-pickle": {
+      "model": "opencode/big-pickle",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Big Pickle (OpenCode)"
+    },
+    
+    // --- OpenAI/GPT Models ---
+    "gpt-5-2": {
+      "model": "opencode/gpt-5.2",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.2 (OpenAI)"
+    },
+    
+    "gpt-5-2-codex": {
+      "model": "opencode/gpt-5.2-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.2 Codex (OpenAI)"
+    },
+    
+    "gpt-5-1": {
+      "model": "opencode/gpt-5.1",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 (OpenAI)"
+    },
+    
+    "gpt-5-1-codex": {
+      "model": "opencode/gpt-5.1-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 Codex (OpenAI)"
+    },
+    
+    "gpt-5-1-codex-max": {
+      "model": "opencode/gpt-5.1-codex-max",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 Codex Max (OpenAI)"
+    },
+    
+    "gpt-5-1-codex-mini": {
+      "model": "opencode/gpt-5.1-codex-mini",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5.1 Codex Mini (OpenAI)"
+    },
+    
+    "gpt-5": {
+      "model": "opencode/gpt-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5 (OpenAI)"
+    },
+    
+    "gpt-5-codex": {
+      "model": "opencode/gpt-5-codex",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5 Codex (OpenAI)"
+    },
+    
+    "gpt-5-nano": {
+      "model": "opencode/gpt-5-nano",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GPT-5 Nano (OpenAI)"
+    },
+    
+    // --- Gemini Models ---
+    "gemini-3-pro": {
+      "model": "opencode/gemini-3-pro",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Gemini 3 Pro (Google)"
+    },
+    
+    "gemini-3-flash": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Gemini 3 Flash (Google)"
+    },
+    
+    // --- GLM Models ---
+    "glm-4-7": {
+      "model": "opencode/glm-4.7",
+      "temperature": 0.3,
+      "mode": "subagent",
+      "description": "Model: GLM-4.7"
+    },
+    
+    "glm-4-6": {
+      "model": "opencode/glm-4.6",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: GLM-4.6"
+    },
+    
+    // --- Kimi Models ---
+    "kimi-2-5": {
+      "model": "opencode/kimi-2.5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Kimi 2.5 (Moonshot AI)"
+    },
+    
+    "kimi-k2": {
+      "model": "opencode/kimi-k2",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Kimi K2 (Moonshot AI)"
+    },
+    
+    // --- Minimax Models ---
+    "minimax-m2-1": {
+      "model": "opencode/minimax-m2.1",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: MiniMax M2.1"
+    },
+    
+    // --- Qwen Models ---
+    "qwen3-coder": {
+      "model": "opencode/qwen3-coder",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Model: Qwen3 Coder"
+    },
+    
+    // =======================================================================
+    // ORCHESTRATOR SUBAGENTS - Delegate to model subagents
+    // =======================================================================
+    
+    "librarian": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.1,
+      "mode": "subagent",
+      "description": "Librarian: Research and documentation - delegates to appropriate model subagents",
+      "permission": {
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    
+    "explorer": {
+      "model": "opencode/gemini-3-flash",
+      "temperature": 0.0,
+      "mode": "subagent",
+      "description": "Explorer: Codebase exploration - delegates to appropriate model subagents",
+      "permission": {
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    
+    "reviewer": {
+      "model": "opencode/claude-sonnet-4-5",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Reviewer: Code review - delegates to appropriate model subagents",
+      "permission": {
+        "task": {
+          "*": "allow"
+        }
+      }
+    }
+  }
+}
