@@ -1,0 +1,92 @@
+2026-01-27T12:08:22.693Z [DEBUG] [init] configureGlobalMTLS starting
+2026-01-27T12:08:22.693Z [DEBUG] [init] configureGlobalMTLS complete
+2026-01-27T12:08:22.693Z [DEBUG] [init] configureGlobalAgents starting
+2026-01-27T12:08:22.693Z [DEBUG] [init] configureGlobalAgents complete
+2026-01-27T12:08:22.695Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702695
+2026-01-27T12:08:22.695Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.697Z [DEBUG] Temp file written successfully, size: 4383 bytes
+2026-01-27T12:08:22.697Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.697Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702695 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.697Z [DEBUG] File /home/mrmg/.claude.json written atomically
+2026-01-27T12:08:22.699Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-01-27T12:08:22.700Z [DEBUG] [ToolSearch:optimistic] mode=standard, ENABLE_TOOL_SEARCH=undefined, result=false
+2026-01-27T12:08:22.700Z [DEBUG] [STARTUP] Running setup()...
+2026-01-27T12:08:22.700Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-27T12:08:22.706Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/home/mrmg/.claude/skills, project=[]
+2026-01-27T12:08:22.707Z [ERROR] Error: Error: ENOENT: no such file or directory, scandir '/etc/claude-code/.claude/skills'
+    at readdirSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:1903)
+    at uJ (/$bunfs/root/claude:11:35097)
+    at readdirSync (/$bunfs/root/claude:12:1864)
+    at qW$ (/$bunfs/root/claude:1477:380)
+    at qW$ (/$bunfs/root/claude:1477:1350)
+    at <anonymous> (/$bunfs/root/claude:1477:4440)
+    at <anonymous> (/$bunfs/root/claude:1477:5171)
+    at A (/$bunfs/root/claude:11:7244)
+    at kQ1 (/$bunfs/root/claude:4782:4342)
+2026-01-27T12:08:22.707Z [ERROR] Error: Error: ENOENT: no such file or directory, scandir '/home/mrmg/.claude/skills'
+    at readdirSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:1903)
+    at uJ (/$bunfs/root/claude:11:35097)
+    at readdirSync (/$bunfs/root/claude:12:1864)
+    at qW$ (/$bunfs/root/claude:1477:380)
+    at qW$ (/$bunfs/root/claude:1477:1350)
+    at <anonymous> (/$bunfs/root/claude:1477:4483)
+    at <anonymous> (/$bunfs/root/claude:1477:5171)
+    at A (/$bunfs/root/claude:11:7244)
+    at kQ1 (/$bunfs/root/claude:4782:4342)
+2026-01-27T12:08:22.707Z [DEBUG] Error log sink initialized
+2026-01-27T12:08:22.711Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-27T12:08:22.711Z [DEBUG] Total plugin skills loaded: 0
+2026-01-27T12:08:22.711Z [DEBUG] Total plugin commands loaded: 0
+2026-01-27T12:08:22.711Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-27T12:08:22.714Z [DEBUG] [STARTUP] setup() completed in 14ms
+2026-01-27T12:08:22.714Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-01-27T12:08:22.715Z [DEBUG] Total plugin agents loaded: 0
+2026-01-27T12:08:22.715Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2026-01-27T12:08:22.716Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 0 bundled skills
+2026-01-27T12:08:22.717Z [DEBUG] [STARTUP] Commands and agents loaded in 3ms
+2026-01-27T12:08:22.717Z [DEBUG] [STARTUP] Running showSetupScreens()...
+2026-01-27T12:08:22.717Z [DEBUG] [render] initYoga starting
+2026-01-27T12:08:22.733Z [DEBUG] [Claude in Chrome] Found chrome profiles: Default, Profile 1
+2026-01-27T12:08:22.735Z [DEBUG] [render] initYoga complete
+2026-01-27T12:08:22.736Z [DEBUG] [render] first ink render: 308ms since process start
+2026-01-27T12:08:22.738Z [DEBUG] [keybindings] KeybindingSetup initialized with 87 bindings, 0 warnings
+2026-01-27T12:08:22.763Z [DEBUG] [keybindings] Skipping file watcher - user customization disabled
+2026-01-27T12:08:22.764Z [DEBUG] [Claude in Chrome] Extension not found in any browser
+2026-01-27T12:08:22.764Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702764
+2026-01-27T12:08:22.764Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.766Z [DEBUG] Temp file written successfully, size: 4426 bytes
+2026-01-27T12:08:22.766Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.766Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702764 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.766Z [DEBUG] File /home/mrmg/.claude.json written atomically
+2026-01-27T12:08:22.769Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702769
+2026-01-27T12:08:22.769Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.770Z [DEBUG] Temp file written successfully, size: 4426 bytes
+2026-01-27T12:08:22.770Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.770Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702769 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.771Z [DEBUG] File /home/mrmg/.claude.json written atomically
+2026-01-27T12:08:22.854Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702854
+2026-01-27T12:08:22.854Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.856Z [DEBUG] Temp file written successfully, size: 4425 bytes
+2026-01-27T12:08:22.856Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.856Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702854 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.857Z [DEBUG] File /home/mrmg/.claude.json written atomically
+2026-01-27T12:08:22.857Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702857
+2026-01-27T12:08:22.857Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.859Z [DEBUG] Temp file written successfully, size: 4424 bytes
+2026-01-27T12:08:22.859Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.859Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702857 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.859Z [DEBUG] File /home/mrmg/.claude.json written atomically
+2026-01-27T12:08:22.860Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702860
+2026-01-27T12:08:22.860Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.862Z [DEBUG] Temp file written successfully, size: 4457 bytes
+2026-01-27T12:08:22.862Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.862Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702860 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.862Z [DEBUG] File /home/mrmg/.claude.json written atomically
+2026-01-27T12:08:22.862Z [DEBUG] Writing to temp file: /home/mrmg/.claude.json.tmp.1283671.1769515702862
+2026-01-27T12:08:22.862Z [DEBUG] Preserving file permissions: 100600
+2026-01-27T12:08:22.864Z [DEBUG] Temp file written successfully, size: 4502 bytes
+2026-01-27T12:08:22.864Z [DEBUG] Applied original permissions to temp file
+2026-01-27T12:08:22.864Z [DEBUG] Renaming /home/mrmg/.claude.json.tmp.1283671.1769515702862 to /home/mrmg/.claude.json
+2026-01-27T12:08:22.864Z [DEBUG] File /home/mrmg/.claude.json written atomically

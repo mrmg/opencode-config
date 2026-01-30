@@ -50,24 +50,24 @@
     // ============================================================================
     
     "personal-architect": {
-      "model": "opencode/gpt-5.2",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Personal: Architecture & Design - GPT-5.2 (80% SWE-bench)"
+      "description": "Personal: Architecture & Design - Kimi K2.5 (Chutes)"
     },
-    
+
     "personal-coder": {
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Personal: Implementation - Claude Sonnet 4.5"
+      "description": "Personal: Implementation - Kimi K2.5 (Chutes)"
     },
-    
+
     "personal-strategist": {
-      "model": "opencode/gpt-5.2",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Personal: Strategic Planning - GPT-5.2"
+      "description": "Personal: Strategic Planning - Kimi K2.5 (Chutes)"
     },
     
     // ============================================================================
@@ -75,10 +75,10 @@
     // ============================================================================
     
     "orchestrator": {
-      "model": "github-copilot/gpt-5.2",
+      "model": "chutes/Qwen/Qwen3-235B-A22B",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Orchestrator: Manage subagents - Use '<model>' subagent to do this task"
+      "description": "Orchestrator: Manage subagents - Qwen3 235B (Chutes)"
     },
     
     // ============================================================================
@@ -111,17 +111,17 @@
     // ============================================================================
     
     "free-primary": {
-      "model": "opencode/glm-4.7",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.3,
       "mode": "primary",
-      "description": "Free: PRIMARY CODER - GLM-4.7 (73.8% SWE-bench)"
+      "description": "Free: PRIMARY CODER - GLM-4.7 Flash (Chutes)"
     },
-    
+
     "free-rapid": {
-      "model": "opencode/grok-code",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Free: RAPID CODER - Grok Code (70.8% SWE, 296 tok/s)"
+      "description": "Free: RAPID CODER - GLM-4.7 Flash (Chutes)"
     },
     
     // ============================================================================
@@ -129,24 +129,24 @@
     // ============================================================================
     
     "security-reviewer": {
-      "model": "opencode/gpt-5.2",
+      "model": "chutes/deepseek-ai/DeepSeek-R1-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Security review: vulnerability assessment, threat modeling, best practices"
+      "description": "Security review: vulnerability assessment, threat modeling, best practices (Chutes)"
     },
-    
+
     "librarian": {
-      "model": "opencode/gemini-3-flash",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.1,
       "mode": "subagent",
-      "description": "Librarian: Documentation research, library lookup, API documentation"
+      "description": "Librarian: Documentation research, library lookup, API documentation (Chutes)"
     },
-    
+
     "explorer": {
-      "model": "opencode/gemini-3-flash",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.0,
       "mode": "subagent",
-      "description": "Explorer: Codebase exploration, finding code patterns, file search"
+      "description": "Explorer: Codebase exploration, finding code patterns, file search (Chutes)"
     },
     
     "reviewer": {
@@ -157,10 +157,10 @@
     },
     
     "documenter": {
-      "model": "opencode/gemini-3-flash",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.5,
       "mode": "subagent",
-      "description": "Documenter: READMEs, API docs, technical documentation"
+      "description": "Documenter: READMEs, API docs, technical documentation (Chutes)"
     },
     
     "typescript-specialist": {
@@ -185,38 +185,38 @@
     },
     
     "debugger": {
-      "model": "opencode/grok-code",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Debugger: Fast debugging, error analysis (Grok Code - 296 tok/s)"
+      "description": "Debugger: Fast debugging, error analysis (Chutes)"
     },
-    
+
     "optimizer": {
-      "model": "opencode/gpt-5.2-codex",
+      "model": "chutes/Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Optimizer: Performance optimization, profiling, bottlenecks"
+      "description": "Optimizer: Performance optimization, profiling, bottlenecks (Chutes)"
     },
-    
+
     "qa": {
-      "model": "opencode/glm-4.7",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.3,
       "mode": "subagent",
-      "description": "QA: Test planning, edge cases, quality planning"
+      "description": "QA: Test planning, edge cases, quality planning (Chutes)"
     },
-    
+
     "multimodal": {
-      "model": "opencode/gemini-3-pro",
+      "model": "chutes/Qwen/Qwen2.5-VL-72B-Instruct-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Multimodal: Image analysis, visual tasks"
+      "description": "Multimodal: Image analysis, visual tasks (Chutes)"
     },
-    
+
     "release-notes": {
-      "model": "opencode/gemini-3-pro",
+      "model": "chutes/Qwen/Qwen3-235B-A22B",
       "temperature": 0.3,
       "mode": "subagent",
-      "description": "Release notes: Changelog generation, PR summaries, version documentation"
+      "description": "Release notes: Changelog generation, PR summaries, version documentation (Chutes)"
     },
     
     "refactorer": {
@@ -227,17 +227,17 @@
     },
     
     "reasoner": {
-      "model": "opencode/gpt-5.2",
+      "model": "chutes/deepseek-ai/DeepSeek-R1-TEE",
       "temperature": 0.1,
       "mode": "subagent",
-      "description": "Reasoner: Complex problem solving, analysis, deep reasoning"
+      "description": "Reasoner: Complex problem solving, analysis, deep reasoning (Chutes)"
     },
-    
+
     "rapid": {
-      "model": "opencode/gpt-5-nano",
+      "model": "chutes/zai-org/GLM-4.7-Flash",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Rapid: Quick tasks, simple operations, fast responses"
+      "description": "Rapid: Quick tasks, simple operations, fast responses (Chutes)"
     },
     
     // ============================================================================
