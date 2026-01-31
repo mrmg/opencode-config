@@ -21,14 +21,14 @@ Use gemini-3-flash subagent to search the codebase
 
 ## Primary Agents
 
-### Work (Kato) - Best Models
+### Work (Kato) - Best Models (via GitHub Copilot & Chutes)
 
 | Agent | Model | Purpose | Best For |
 |-------|-------|---------|----------|
-| `kato-architect` | Claude Opus 4.5 | Architecture & Design | System design, complex refactoring, technical decisions |
-| `kato-coder` | Claude Sonnet 4.5 | Implementation | Daily coding tasks, feature implementation |
-| `kato-strategist` | Claude Opus 4.5 | Strategic Planning | Planning, analysis, complex problem solving |
-| `kato-typescript` | **Kimi K2.5** | TypeScript Specialist | TypeScript/React projects, rivals Claude Opus 4.5, cheaper |
+| `kato-architect` | Claude Opus 4.5 (Copilot) | Architecture & Design | System design, complex refactoring, technical decisions |
+| `kato-coder` | Claude Sonnet 4.5 (Copilot) | Implementation | Daily coding tasks, feature implementation |
+| `kato-strategist` | Claude Opus 4.5 (Copilot) | Strategic Planning | Planning, analysis, complex problem solving |
+| `kato-typescript` | **Kimi K2.5 (Chutes)** | TypeScript Specialist | TypeScript/React projects, rivals Claude Opus 4.5, cheaper |
 
 ### Personal - Mixed Models
 
@@ -73,7 +73,7 @@ Use these with the orchestrator: "Use `<subagent>` subagent to <task>"
 
 ### By Model Capability
 
-#### Claude (Anthropic)
+#### Claude (Anthropic) - via GitHub Copilot
 - `claude-opus-4-5` - Most capable, best for complex tasks (80.9% SWE-bench)
 - `claude-sonnet-4-5` - Balanced performance and speed (77.2% SWE-bench)
 - `claude-sonnet-4` - Previous generation, still capable
@@ -81,7 +81,7 @@ Use these with the orchestrator: "Use `<subagent>` subagent to <task>"
 - `claude-haiku-4-5` - Fast, lightweight
 - `claude-3-5-haiku` - Previous generation fast model
 
-#### GPT (OpenAI)
+#### GPT (OpenAI) - via GitHub Copilot
 - `gpt-5.2` - Most capable GPT model (80% SWE-bench)
 - `gpt-5.2-codex` - Specialized for coding
 - `gpt-5.1` - Strong general performance
@@ -92,21 +92,21 @@ Use these with the orchestrator: "Use `<subagent>` subagent to <task>"
 - `gpt-5-codex` - Basic coding
 - `gpt-5-nano` - Fastest, cheapest
 
-#### Gemini (Google)
+#### Gemini (Google) - via Chutes
 - `gemini-3-pro` - Most capable Gemini
 - `gemini-3-flash` - Fast and efficient (78% SWE-bench)
 
-#### Kimi (Moonshot AI)
+#### Kimi (Moonshot AI) - via Chutes
 - `kimi-k2-5` - **NEW: Kimi K2.5** - Excellent for TypeScript, rivals Claude Opus 4.5, more cost-effective
 - `kimi-2.5` - Moonshot AI
 - `kimi-k2` - Alternative Moonshot model
 
-#### Others
+#### Others - via Chutes
 - `glm-4.7` - Strong performance, free tier (73.8% SWE-bench, 95.7% AIME)
 - `glm-4.6` - Lightweight GLM
 - `minimax-m2.1` - MiniMax model
 - `qwen3-coder` - Alibaba coding model
-- `big-pickle` - OpenCode specific
+- `big-pickle` - OpenCode alternative
 
 ## Usage Examples
 

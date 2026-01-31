@@ -13,33 +13,33 @@
   "autoupdate": true,
 
   // ============================================================================
-  // PRIMARY AGENTS - WORK (Kato - Anthropic via OpenCode)
+  // PRIMARY AGENTS - WORK (Kato - via GitHub Copilot & Chutes)
   // ============================================================================
   "agent": {
     // Work Primary Agents
     "kato-architect": {
-      "model": "opencode/claude-opus-4-5",
+      "model": "github-copilot/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Kato: Architecture & Design - Claude Opus 4.5 (80.9% SWE-bench)"
     },
     
     "kato-coder": {
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "github-copilot/claude-sonnet-4-5",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Kato: Implementation - Claude Sonnet 4.5 (77.2% SWE-bench)"
     },
     
     "kato-strategist": {
-      "model": "opencode/claude-opus-4-5",
+      "model": "github-copilot/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Kato: Strategic Planning - Claude Opus 4.5"
     },
     
     "kato-typescript": {
-      "model": "opencode/kimi-k2.5",
+      "model": "chutes/moonshotai/Kimi-K2.5",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Kato: TypeScript & React specialist - Kimi K2.5 (Moonshot AI) rivals Claude Opus 4.5"
@@ -150,7 +150,7 @@
     },
     
     "reviewer": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Code review: Pattern matching, best practices, quality assurance (Kimi K2.5 - best for TS)"
@@ -164,21 +164,21 @@
     },
     
     "typescript-specialist": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "TypeScript specialist: Type safety, advanced patterns, refactoring (Kimi K2.5 - best for TS)"
     },
     
     "frontend": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2-5",
       "temperature": 0.7,
       "mode": "subagent",
       "description": "Frontend: UI/UX design, component architecture, styling (Kimi K2.5 - best for TS/React)"
     },
     
     "tester": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Tester: Unit tests, integration tests, test coverage (Kimi K2.5 - best for TS test code)"
@@ -220,7 +220,7 @@
     },
     
     "refactorer": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Refactorer: Mechanical cleanup, code restructuring, simplification (Kimi K2.5 - best for TS)"
@@ -246,42 +246,42 @@
     
     // --- Anthropic Models ---
     "claude-opus-4-5": {
-      "model": "opencode/claude-opus-4-5",
+      "model": "github-copilot/claude-opus-4-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Claude Opus 4.5 (Anthropic)"
     },
     
     "claude-sonnet-4-5": {
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "github-copilot/claude-sonnet-4-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Claude Sonnet 4.5 (Anthropic)"
     },
     
     "claude-sonnet-4": {
-      "model": "opencode/claude-sonnet-4",
+      "model": "github-copilot/claude-sonnet-4",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Claude Sonnet 4 (Anthropic)"
     },
     
     "claude-opus-4-1": {
-      "model": "opencode/claude-opus-4-1",
+      "model": "github-copilot/claude-opus-4-1",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Claude Opus 4.1 (Anthropic)"
     },
     
     "claude-haiku-4-5": {
-      "model": "opencode/claude-haiku-4-5",
+      "model": "github-copilot/claude-haiku-4-5",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Model: Claude Haiku 4.5 (Anthropic)"
     },
     
     "claude-3-5-haiku": {
-      "model": "opencode/claude-3-5-haiku",
+      "model": "github-copilot/claude-3-5-haiku",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Model: Claude 3.5 Haiku (Anthropic)"
@@ -289,63 +289,63 @@
     
     // --- OpenAI/GPT Models ---
     "gpt-5-2": {
-      "model": "opencode/gpt-5.2",
+      "model": "github-copilot/gpt-5.2",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5.2 (OpenAI)"
     },
     
     "gpt-5-2-codex": {
-      "model": "opencode/gpt-5.2-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5.2 Codex (OpenAI)"
     },
     
     "gpt-5-1": {
-      "model": "opencode/gpt-5.1",
+      "model": "github-copilot/gpt-5.1",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5.1 (OpenAI)"
     },
     
     "gpt-5-1-codex": {
-      "model": "opencode/gpt-5.1-codex",
+      "model": "github-copilot/gpt-5.1-codex",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5.1 Codex (OpenAI)"
     },
     
     "gpt-5-1-codex-max": {
-      "model": "opencode/gpt-5.1-codex-max",
+      "model": "github-copilot/gpt-5.1-codex-max",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5.1 Codex Max (OpenAI)"
     },
     
     "gpt-5-1-codex-mini": {
-      "model": "opencode/gpt-5.1-codex-mini",
+      "model": "github-copilot/gpt-5.1-codex-mini",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5.1 Codex Mini (OpenAI)"
     },
     
     "gpt-5": {
-      "model": "opencode/gpt-5",
+      "model": "github-copilot/gpt-5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5 (OpenAI)"
     },
     
     "gpt-5-codex": {
-      "model": "opencode/gpt-5-codex",
+      "model": "github-copilot/gpt-5-codex",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5 Codex (OpenAI)"
     },
     
     "gpt-5-nano": {
-      "model": "opencode/gpt-5-nano",
+      "model": "github-copilot/gpt-5-nano",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GPT-5 Nano (OpenAI)"
@@ -353,14 +353,14 @@
     
     // --- Gemini Models ---
     "gemini-3-pro": {
-      "model": "opencode/gemini-3-pro",
+      "model": "chutes/google/gemini-3-pro",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Gemini 3 Pro (Google)"
     },
     
     "gemini-3-flash": {
-      "model": "opencode/gemini-3-flash",
+      "model": "chutes/google/gemini-3-flash",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Gemini 3 Flash (Google)"
@@ -368,14 +368,14 @@
     
     // --- GLM Models ---
     "glm-4-7": {
-      "model": "opencode/glm-4.7",
+      "model": "chutes/glm-4.7",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Model: GLM-4.7"
     },
     
     "glm-4-6": {
-      "model": "opencode/glm-4.6",
+      "model": "chutes/glm-4.6",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: GLM-4.6"
@@ -383,21 +383,21 @@
     
     // --- Kimi Models ---
     "kimi-k2-5": {
-      "model": "opencode/kimi-k2.5",
+      "model": "chutes/moonshotai/Kimi-K2.5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Kimi K2.5 (Moonshot AI) - Best for TypeScript, rivals Claude Opus 4.5"
     },
     
     "kimi-2-5": {
-      "model": "opencode/kimi-2.5",
+      "model": "chutes/moonshotai/Kimi-2.5",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Kimi 2.5 (Moonshot AI)"
     },
     
     "kimi-k2": {
-      "model": "opencode/kimi-k2",
+      "model": "chutes/moonshotai/Kimi-K2",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Kimi K2 (Moonshot AI)"
@@ -405,7 +405,7 @@
     
     // --- Minimax Models ---
     "minimax-m2-1": {
-      "model": "opencode/minimax-m2.1",
+      "model": "chutes/minimax-m2.1",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: MiniMax M2.1"
@@ -413,7 +413,7 @@
     
     // --- Qwen Models ---
     "qwen3-coder": {
-      "model": "opencode/qwen3-coder",
+      "model": "chutes/qwen3-coder",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Qwen3 Coder"
@@ -421,7 +421,7 @@
     
     // --- OpenCode Specific ---
     "big-pickle": {
-      "model": "opencode/big-pickle",
+      "model": "chutes/big-pickle",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Model: Big Pickle (OpenCode)"
