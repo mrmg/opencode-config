@@ -75,7 +75,7 @@
     // ============================================================================
     
     "orchestrator": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B",
+      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
       "temperature": 0.2,
       "mode": "primary",
       "description": "Orchestrator: Manage subagents - Qwen3 235B (Chutes)"
@@ -129,7 +129,7 @@
     // ============================================================================
     
     "security-reviewer": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-TEE",
+      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
       "temperature": 0.2,
       "mode": "subagent",
       "description": "Security review: vulnerability assessment, threat modeling, best practices (Chutes)"
@@ -150,10 +150,10 @@
     },
     
     "reviewer": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Code review: Pattern matching, best practices, quality assurance (Kimi K2.5 - best for TS)"
+      "description": "Code review: Pattern matching, best practices, quality assurance (Kimi K2.5 - Chutes)"
     },
     
     "documenter": {
@@ -164,24 +164,24 @@
     },
     
     "typescript-specialist": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "TypeScript specialist: Type safety, advanced patterns, refactoring (Kimi K2.5 - best for TS)"
+      "description": "TypeScript specialist: Type safety, advanced patterns, refactoring (Kimi K2.5 - Chutes)"
     },
     
     "frontend": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.7,
       "mode": "subagent",
-      "description": "Frontend: UI/UX design, component architecture, styling (Kimi K2.5 - best for TS/React)"
+      "description": "Frontend: UI/UX design, component architecture, styling (Kimi K2.5 - Chutes)"
     },
     
     "tester": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Tester: Unit tests, integration tests, test coverage (Kimi K2.5 - best for TS test code)"
+      "description": "Tester: Unit tests, integration tests, test coverage (Kimi K2.5 - Chutes)"
     },
     
     "debugger": {
@@ -206,28 +206,28 @@
     },
 
     "multimodal": {
-      "model": "chutes/Qwen/Qwen2.5-VL-72B-Instruct-TEE",
+      "model": "chutes/zai-org/GLM-4.7-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Multimodal: Image analysis, visual tasks (Chutes)"
+      "description": "Multimodal: Image analysis, visual tasks — powered by GLM-4.7 (Chutes)"
     },
 
     "release-notes": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B",
+      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
       "temperature": 0.3,
       "mode": "subagent",
       "description": "Release notes: Changelog generation, PR summaries, version documentation (Chutes)"
     },
     
     "refactorer": {
-      "model": "opencode/kimi-k2-5",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Refactorer: Mechanical cleanup, code restructuring, simplification (Kimi K2.5 - best for TS)"
+      "description": "Refactorer: Mechanical cleanup, code restructuring, simplification (Kimi K2.5 - Chutes)"
     },
     
     "reasoner": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-TEE",
+      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
       "temperature": 0.1,
       "mode": "subagent",
       "description": "Reasoner: Complex problem solving, analysis, deep reasoning (Chutes)"
