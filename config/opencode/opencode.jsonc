@@ -1,827 +1,105 @@
 // ============================================================================
-// OPENCODE CONFIGURATION — 3-Tier Provider Strategy
+// OPENCODE CONFIGURATION
 // ============================================================================
 //
-// Tier 1: Chutes.ai    — Daily driver. Open models, best value (subscription)
-// Tier 2: GitHub Copilot — Frontier quality. Flat rate crushes pay-per-token
-// Tier 3: OpenRouter     — Experimentation. Spend credits, test/compare models
+// Personal (default): oh-my-opencode-slim pantheon — cost-optimized
+//   orchestrator  → Kimi K2.5 TEE (Chutes)
+//   explorer      → GPT-5.1-Codex-Mini (Copilot, 0.33x)
+//   librarian     → Gemini 3 Flash (Copilot, 0.33x)
+//   oracle        → Pony Alpha (OpenRouter, FREE)
+//   designer      → Kimi K2.5 TEE (Chutes)
+//   fixer         → GPT-5.1-Codex-Mini (Copilot, 0.33x)
 //
-// WHY: One heavy Opus 4.6 session on OpenRouter costs $3-10+.
-//      Copilot Pro bundles that for $10/month flat. Use Chutes for daily work,
-//      Copilot when you need frontier, OpenRouter to spend credits.
+// Kato (preset): oh-my-opencode-slim pantheon — premium (Copilot ≤1x)
+//   orchestrator  → GPT-5.2 Codex (Copilot, 1x)
+//   explorer      → GPT-5.1-Codex-Mini (Copilot, 0.33x)
+//   librarian     → Gemini 3 Pro (Copilot, 1x)
+//   oracle        → Claude Sonnet 4.5 (Copilot, 1x)
+//   designer      → Claude Sonnet 4.5 (Copilot, 1x)
+//   fixer         → GPT-5.2 Codex (Copilot, 1x)
 //
-// Pricing reference (per 1M tokens, input/output):
-//   FRONTIER:  Claude Opus 4.6 $5/$25 | GPT-5.2 Codex $1.75/$14
-//   STRONG:    Claude Sonnet 4.5 $3/$15 | Gemini 3 Pro $2/$12
-//   VALUE:     Kimi K2.5 $0.45/$2.25 | Gemini 3 Flash $0.50/$3
-//   BUDGET:    DeepSeek V3.2 $0.25/$0.38 | GPT-5 Mini $0.25/$2
-//   FREE:      Pony Alpha FREE (Opus-class!) | DeepSeek R1 0528 FREE | Kimi K2 FREE
+// Activate Kato: OH_MY_OPENCODE_SLIM_PRESET=kato opencode
+//
+// Copilot multiplier reference:
+//   0x:   GPT-4.1, GPT-4o, GPT-5 mini, Raptor mini
+//   0.25x: Grok Code Fast 1
+//   0.33x: Claude Haiku 4.5, Gemini 3 Flash, GPT-5.1-Codex-Mini
+//   1x:   Sonnet 4/4.5, Gemini 3 Pro, GPT-5/5.1/5.2/Codex variants
+//   3x:   Claude Opus 4.5/4.6 — avoid
+//   10x:  Claude Opus 4.1 — never
 // ============================================================================
 
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "opencode",
-  "model": "assistant-fast",
   "autoupdate": true,
 
-    // ============================================================================
-    // PRIMARY AGENTS - WORK (Kato) — GitHub Copilot (flat rate frontier models)
-    // NOTE: Copilot Pro bundles frontier models for $10-39/month flat.
-    //       One heavy Opus session on OpenRouter costs $3-10+. Use Copilot for work.
-    // ============================================================================
+  // ============================================================================
+  // AGENTS
+  // ============================================================================
   "agent": {
-    "kato-architect": {
-      "model": "github-copilot/claude-opus-4.6",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Kato: Architecture & Design - Claude Opus 4.6 via Copilot (flat rate, 1M context)"
-    },
 
-    "kato-coder": {
-      "model": "github-copilot/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Kato: Implementation - GPT-5.2 Codex via Copilot (flat rate, 400K context)"
-    },
+    // --- Pony Alpha: FREE frontier primary agent ---
 
-    "kato-strategist": {
-      "model": "github-copilot/claude-opus-4.6",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Kato: Strategic Planning - Claude Opus 4.6 via Copilot (flat rate, 1M context)"
-    },
-
-    "kato-typescript": {
-      "model": "github-copilot/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Kato: TypeScript & React specialist - GPT-5.2 Codex via Copilot (flat rate)"
-    },
-
-    // ============================================================================
-    // PRIMARY AGENTS - CHAT/ASSISTANT (Chutes — best value)
-    // ============================================================================
-    
-    "assistant": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.7,
-      "mode": "primary",
-      "description": "Assistant: General AI chat - Kimi K2.5 TEE on Chutes ($0.45/$2.25 per 1M, 262K context)",
-      "fallback": "chutes/zai-org/GLM-4.7-Flash"
-    },
-
-    "assistant-fast": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.7,
-      "mode": "primary",
-      "description": "Assistant: Fast AI chat - Kimi K2.5 TEE on Chutes (best value chat, 262K context)",
-      "fallback": "chutes/zai-org/GLM-4.7-Flash"
-    },
-
-    // ============================================================================
-    // PRIMARY AGENTS - PERSONAL (Chutes — open models)
-    // ============================================================================
-    
-    "personal-architect": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Personal: Architecture - DeepSeek V3.2 TEE on Chutes (GPT-5 class reasoning, incredible value)"
-    },
-
-    "personal-coder": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Personal: Implementation - Kimi K2.5 TEE on Chutes (excellent coding, 262K context)"
-    },
-
-    "personal-strategist": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Personal: Strategic Planning - DeepSeek R1 0528 TEE on Chutes (best open reasoning)"
-    },
-
-    "personal-pony": {
+    "pony": {
       "model": "openrouter/openrouter/pony-alpha",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "Personal: FREE frontier model - Pony Alpha via OpenRouter (Opus 4.6 class, 200K context). WARNING: Data is logged for training - personal use only!"
+      "description": "Pony Alpha — FREE Opus-class model (200K context). Data logged, personal use only."
     },
 
-    // ============================================================================
-    // ORCHESTRATOR
-    // ============================================================================
-    
-    "orchestrator": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Orchestrator: Manage subagents - Kimi K2.5 TEE on Chutes"
-    },
-    
-    // ============================================================================
-    // FREE TIER AGENTS (Chutes free tier)
-    // ============================================================================
-    
-    "free-primary": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.3,
-      "mode": "primary",
-      "description": "Free: PRIMARY CODER - GLM-4.7 Flash on Chutes (73.8% SWE-bench)"
-    },
+    // --- Testing: Frontier models as subagents (OpenRouter, pay-per-token) ---
 
-    "free-rapid": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.2,
-      "mode": "primary",
-      "description": "Free: RAPID CODER - GLM-4.7 Flash on Chutes (fast responses)"
-    },
-    
-    // ============================================================================
-    // SPECIALIST SUBAGENTS (Task-specific)
-    // ============================================================================
-    
-    "security-reviewer": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Security review: vulnerability assessment, threat modeling (DeepSeek R1 on Chutes)"
-    },
-
-    "librarian": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Librarian: Documentation research, library lookup, API docs (GLM-4.7 Flash on Chutes)"
-    },
-
-    "explorer": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.0,
-      "mode": "subagent",
-      "description": "Explorer: Codebase exploration, finding code patterns (GLM-4.7 Flash on Chutes)"
-    },
-    
-    "reviewer": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Code review: Pattern matching, best practices, quality assurance (Kimi K2.5 on Chutes)"
-    },
-    
-    "documenter": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Documenter: READMEs, API docs, technical documentation (GLM-4.7 Flash on Chutes)"
-    },
-    
-    "typescript-specialist": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "TypeScript specialist: Type safety, advanced patterns (Kimi K2.5 on Chutes - Best for TS)"
-    },
-    
-    "frontend": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Frontend: UI/UX design, component architecture, styling (Kimi K2.5 on Chutes)"
-    },
-    
-    "tester": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Tester: Unit tests, integration tests, test coverage (Qwen3 Coder on Chutes)"
-    },
-    
-    "debugger": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Debugger: Fast debugging, error analysis (GLM-4.7 Flash on Chutes)"
-    },
-
-    "optimizer": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Optimizer: Performance optimization, profiling (Qwen3-Coder-Next on Chutes)"
-    },
-
-    "qa": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "QA: Test planning, edge cases, quality planning (GLM-4.7 Flash on Chutes)"
-    },
-
-    "multimodal": {
-      "model": "chutes/zai-org/GLM-4.7-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Multimodal: Image analysis, visual tasks (GLM-4.7 TEE on Chutes)"
-    },
-
-    "release-notes": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Release notes: Changelog generation, PR summaries (Qwen3 235B on Chutes)"
-    },
-    
-    "refactorer": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Refactorer: Mechanical cleanup, code restructuring (Kimi K2.5 on Chutes)"
-    },
-    
-    "reasoner": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Reasoner: Complex problem solving, deep reasoning (DeepSeek R1 on Chutes)"
-    },
-
-    "rapid": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Rapid: Quick tasks, simple operations, fast responses (GLM-4.7 Flash on Chutes)"
-    },
-    
-    // ============================================================================
-    // MODEL SUBAGENTS — Direct model access via orchestrator
-    // ============================================================================
-    
-    // --- Chutes Models (open/open-source, best value) ---
-    
-    "deepseek-r1-0528": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: DeepSeek R1 0528 TEE on Chutes - Best open reasoning model 2026"
-    },
-    
-    "deepseek-v3-2": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: DeepSeek V3.2 TEE on Chutes - GPT-5 class at $0.25/$0.38, THE value king"
-    },
-    
-    "kimi-k2-5": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: Kimi K2.5 TEE on Chutes - Agent swarm, 262K context, excellent coding"
-    },
-    
-    "qwen3-235b": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: Qwen3 235B on Chutes - Large context, strong general performance"
-    },
-    
-    "qwen3-coder-next": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: Qwen3-Coder-Next on Chutes - Agentic coding specialist, tool use"
-    },
-    
-    "glm-4-7": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Model: GLM-4.7 Flash on Chutes - Cost-effective, fast (73.8% SWE-bench)"
-    },
-    
-    "glm-4-7-tee": {
-      "model": "chutes/zai-org/GLM-4.7-TEE",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Model: GLM-4.7 TEE on Chutes - Multimodal capable"
-    },
-    
-    "kimi-k2-thinking": {
-      "model": "chutes/moonshotai/Kimi-K2-Thinking-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: Kimi K2 Thinking TEE on Chutes - Reasoning mode enabled"
-    },
-    
-    "minimax-m2-1": {
-      "model": "chutes/MiniMaxAI/MiniMax-M2.1-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: MiniMax M2.1 TEE on Chutes - Lightweight, coding optimized"
-    },
-    
-    "devstral-2": {
-      "model": "chutes/mistralai/Devstral-2-123B-Instruct-2512-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: Devstral 2 on Chutes - 123B agentic coding, multi-file orchestration, FREE-tier quality"
-    },
-    
-    "mimo-v2-flash": {
-      "model": "chutes/XiaomiMiMo/MiMo-V2-Flash",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: Xiaomi MiMo V2 Flash on Chutes - 309B MoE, #1 open-source SWE-bench"
-    },
-    
-    // --- OpenRouter Models (proprietary, frontier) ---
-    
-    "gpt-5-2-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: GPT-5.2 Codex via OpenRouter - Frontier coding ($1.75/$14 per 1M, 400K context)"
-    },
-    
-    "claude-opus-4-6": {
+    "test-opus": {
       "model": "openrouter/anthropic/claude-opus-4.6",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Model: Claude Opus 4.6 via OpenRouter - Frontier reasoning ($5/$25 per 1M, 1M context)"
+      "description": "Test: Claude Opus 4.6 — Frontier reasoning ($5/$25 per 1M)"
     },
-    
-    "claude-sonnet-4-5": {
+
+    "test-sonnet": {
       "model": "openrouter/anthropic/claude-sonnet-4.5",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Model: Claude Sonnet 4.5 via OpenRouter - Strong coding/agents ($3/$15 per 1M, 1M context)"
+      "description": "Test: Claude Sonnet 4.5 — Strong coding ($3/$15 per 1M)"
     },
-    
-    "gemini-3-flash": {
-      "model": "openrouter/google/gemini-3-flash-preview",
+
+    "test-codex": {
+      "model": "openrouter/openai/gpt-5.2-codex",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Model: Gemini 3 Flash via OpenRouter - Near-Pro reasoning ($0.50/$3 per 1M, 1M context)"
+      "description": "Test: GPT-5.2 Codex — Frontier coding ($1.75/$14 per 1M)"
     },
-    
-    "gemini-3-pro": {
+
+    "test-gpt52": {
+      "model": "openrouter/openai/gpt-5.2",
+      "temperature": 0.2,
+      "mode": "subagent",
+      "description": "Test: GPT-5.2 — Frontier reasoning ($1.75/$14 per 1M)"
+    },
+
+    "test-gemini-pro": {
       "model": "openrouter/google/gemini-3-pro-preview",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Model: Gemini 3 Pro via OpenRouter - Frontier multimodal ($2/$12 per 1M, 1M context)"
+      "description": "Test: Gemini 3 Pro — Frontier multimodal ($2/$12 per 1M)"
     },
-    
-    "gpt-5-mini": {
-      "model": "openrouter/openai/gpt-5-mini",
+
+    "test-grok4": {
+      "model": "openrouter/x-ai/grok-4",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Model: GPT-5 Mini via OpenRouter - Compact reasoning ($0.25/$2 per 1M, 400K context)"
+      "description": "Test: Grok 4 — xAI frontier model"
     },
-    
-    "deepseek-r1-free": {
-      "model": "openrouter/deepseek/deepseek-r1-0528:free",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Model: DeepSeek R1 0528 FREE via OpenRouter - Strong reasoning, zero cost"
-    },
-    
-    "pony-alpha": {
+
+    "test-pony": {
       "model": "openrouter/openrouter/pony-alpha",
       "temperature": 0.2,
       "mode": "subagent",
-      "description": "Model: Pony Alpha FREE via OpenRouter - Stealth frontier model, Opus 4.6 class, 200K context. WARNING: data is logged, DO NOT use for Kato/work tasks"
-    },
-    
-    // ============================================================================
-    // CHAT/ASSISTANT SUBAGENTS
-    // ============================================================================
-    
-    "chat": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Chat: General AI assistant - Claude Opus 4.6 via OpenRouter (frontier, $5/$25)"
-    },
-    
-    "chat-fast": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Chat: Fast AI assistant - Kimi K2.5 TEE on Chutes (best value chat)"
-    },
-    
-    "chat-cheap": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Chat: Cheap AI assistant - GLM-4.7 Flash on Chutes (cost-effective)"
-    },
-    
-    // ============================================================================
-    // TASK-SPECIFIC SUBAGENT VARIANTS — For Model Comparison & Orchestration
-    // ============================================================================
-    // Naming: <task>-<model> e.g. architect-claude, coder-codex, debugger-deepseek
-    // Chutes for open models, OpenRouter for proprietary only.
-    
-    // --- Architecture & Design ---
-    "architect-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [OpenRouter/Claude]: System design, 1M context ($5/$25)"
-    },
-    "architect-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [OpenRouter/Codex]: Implementation-focused design ($1.75/$14)"
-    },
-    "architect-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [Chutes/DeepSeek V3.2]: GPT-5 class reasoning, incredible value"
-    },
-    "architect-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [Chutes/Kimi]: TypeScript/React focused design"
-    },
-    "architect-qwen": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [Chutes/Qwen]: Large context, strong general performance"
-    },
-    "architect-gemini": {
-      "model": "openrouter/google/gemini-3-pro-preview",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [OpenRouter/Gemini 3 Pro]: 1M context, multimodal ($2/$12)"
-    },
-    "architect-pony": {
-      "model": "openrouter/openrouter/pony-alpha",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Architecture [OpenRouter/Pony Alpha]: FREE, Opus-class. Data logged - personal use only"
-    },
-    
-    // --- Implementation/Coding ---
-    "coder-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [OpenRouter/Codex]: Frontier coding, 400K context ($1.75/$14)"
-    },
-    "coder-codex-creative": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.4,
-      "mode": "subagent",
-      "description": "Coder [OpenRouter/Codex-Creative]: Higher temp for creative solutions ($1.75/$14)"
-    },
-    "coder-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [Chutes/Kimi]: Best for TypeScript/React, excellent coding"
-    },
-    "coder-qwen": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [Chutes/Qwen]: Agentic coding specialist, tool use"
-    },
-    "coder-glm": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [Chutes/GLM]: Fast, cost-effective, 73.8% SWE-bench"
-    },
-    "coder-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [Chutes/DeepSeek V3.2]: GPT-5 class coding at budget price"
-    },
-    "coder-devstral": {
-      "model": "chutes/mistralai/Devstral-2-123B-Instruct-2512-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [Chutes/Devstral 2]: 123B agentic coding, multi-file orchestration"
-    },
-    "coder-sonnet": {
-      "model": "openrouter/anthropic/claude-sonnet-4.5",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [OpenRouter/Sonnet 4.5]: Strong coding/agents ($3/$15)"
-    },
-    "coder-pony": {
-      "model": "openrouter/openrouter/pony-alpha",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Coder [OpenRouter/Pony Alpha]: FREE, Opus-class coding. Data logged - personal use only"
-    },
-    
-    // --- Code Review ---
-    "reviewer-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Review [OpenRouter/Claude]: Deep analysis, quality assurance ($5/$25)"
-    },
-    "reviewer-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Review [OpenRouter/Codex]: Code-focused review, best practices ($1.75/$14)"
-    },
-    "reviewer-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Review [Chutes/Kimi]: TypeScript/React focused review"
-    },
-    "reviewer-qwen": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Review [Chutes/Qwen]: Agentic review, comprehensive analysis"
-    },
-    "reviewer-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Review [Chutes/DeepSeek V3.2]: Budget review, GPT-5 class quality"
-    },
-    "reviewer-pony": {
-      "model": "openrouter/openrouter/pony-alpha",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Review [OpenRouter/Pony Alpha]: FREE, Opus-class review. Data logged - personal use only"
-    },
-    
-    // --- Security Review ---
-    "security-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Security [Chutes/DeepSeek R1]: Vulnerability assessment, transparent reasoning"
-    },
-    "security-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Security [OpenRouter/Claude]: Threat modeling, deep security analysis ($5/$25)"
-    },
-    "security-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.1,
-      "mode": "subagent",
-      "description": "Security [OpenRouter/Codex]: Code security patterns ($1.75/$14)"
-    },
-    
-    // --- Documentation ---
-    "docs-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Docs [OpenRouter/Claude]: High-quality technical documentation ($5/$25)"
-    },
-    "docs-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Docs [OpenRouter/Codex]: Code documentation, API docs ($1.75/$14)"
-    },
-    "docs-glm": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Docs [Chutes/GLM]: Fast, cost-effective documentation"
-    },
-    "docs-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Docs [Chutes/Kimi]: TypeScript/React documentation"
-    },
-    "docs-qwen": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-      "temperature": 0.5,
-      "mode": "subagent",
-      "description": "Docs [Chutes/Qwen]: Large context docs, comprehensive coverage"
-    },
-    
-    // --- Testing ---
-    "tester-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Testing [OpenRouter/Codex]: Unit/integration tests ($1.75/$14)"
-    },
-    "tester-qwen": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Testing [Chutes/Qwen]: Agentic test generation, edge cases"
-    },
-    "tester-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Testing [Chutes/Kimi]: TypeScript test patterns"
-    },
-    "tester-claude": {
-      "model": "openrouter/anthropic/claude-sonnet-4.5",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Testing [OpenRouter/Sonnet 4.5]: Comprehensive test strategy ($3/$15)"
-    },
-    
-    // --- Debugging ---
-    "debugger-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Debug [OpenRouter/Codex]: Fast debugging, error analysis ($1.75/$14)"
-    },
-    "debugger-glm": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Debug [Chutes/GLM]: Quick error analysis"
-    },
-    "debugger-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Debug [Chutes/DeepSeek V3.2]: Deep root cause analysis, budget price"
-    },
-    "debugger-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Debug [Chutes/Kimi]: TypeScript/React debugging"
-    },
-    
-    // --- Optimization ---
-    "optimizer-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Optimize [OpenRouter/Codex]: Performance optimization ($1.75/$14)"
-    },
-    "optimizer-qwen": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Optimize [Chutes/Qwen]: Agentic performance tuning"
-    },
-    "optimizer-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Optimize [OpenRouter/Claude]: System-level optimization ($5/$25)"
-    },
-    "optimizer-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Optimize [Chutes/DeepSeek V3.2]: Algorithmic optimization, budget price"
-    },
-    
-    // --- Research & Analysis ---
-    "researcher-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Research [OpenRouter/Claude]: Deep analysis, 1M context ($5/$25)"
-    },
-    "researcher-deepseek": {
-      "model": "chutes/deepseek-ai/DeepSeek-R1-0528-TEE",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Research [Chutes/DeepSeek R1]: Reasoning-based research, transparent"
-    },
-    "researcher-qwen": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Research [Chutes/Qwen]: Large context research, broad coverage"
-    },
-    "researcher-glm": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Research [Chutes/GLM]: Fast research, cost-effective"
-    },
-    "researcher-gemini": {
-      "model": "openrouter/google/gemini-3-pro-preview",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Research [OpenRouter/Gemini 3 Pro]: 1M context, multimodal ($2/$12)"
-    },
-    
-    // --- Refactoring ---
-    "refactorer-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Refactor [OpenRouter/Codex]: Mechanical cleanup, restructuring ($1.75/$14)"
-    },
-    "refactorer-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Refactor [Chutes/Kimi]: TypeScript/React refactoring"
-    },
-    "refactorer-claude": {
-      "model": "openrouter/anthropic/claude-opus-4.6",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "Refactor [OpenRouter/Claude]: Complex refactoring ($5/$25)"
-    },
-    
-    // --- QA & Edge Cases ---
-    "qa-claude": {
-      "model": "openrouter/anthropic/claude-sonnet-4.5",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "QA [OpenRouter/Sonnet 4.5]: Comprehensive test planning ($3/$15)"
-    },
-    "qa-qwen": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "QA [Chutes/Qwen]: Agentic QA planning, automation"
-    },
-    "qa-glm": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "QA [Chutes/GLM]: Fast QA planning, cost-effective"
-    },
-    
-    // --- Frontend/UI ---
-    "frontend-claude": {
-      "model": "openrouter/anthropic/claude-sonnet-4.5",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Frontend [OpenRouter/Sonnet 4.5]: UI/UX design, visual polish ($3/$15)"
-    },
-    "frontend-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Frontend [Chutes/Kimi]: TypeScript/React UI implementation"
-    },
-    "frontend-qwen": {
-      "model": "chutes/Qwen/Qwen3-Coder-Next",
-      "temperature": 0.7,
-      "mode": "subagent",
-      "description": "Frontend [Chutes/Qwen]: Component architecture, styling"
-    },
-    
-    // --- TypeScript Specialist Variants ---
-    "typescript-codex": {
-      "model": "openrouter/openai/gpt-5.2-codex",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "TypeScript [OpenRouter/Codex]: Frontier model for TS/React ($1.75/$14)"
-    },
-    "typescript-kimi": {
-      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
-      "temperature": 0.2,
-      "mode": "subagent",
-      "description": "TypeScript [Chutes/Kimi]: Best Chutes model for TS/React"
-    },
-    
-    // --- Release Notes & Changelog ---
-    "release-claude": {
-      "model": "openrouter/anthropic/claude-sonnet-4.5",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Release [OpenRouter/Sonnet 4.5]: Changelog generation, PR summaries ($3/$15)"
-    },
-    "release-qwen": {
-      "model": "chutes/Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Release [Chutes/Qwen]: Version documentation, comprehensive"
-    },
-    "release-glm": {
-      "model": "chutes/zai-org/GLM-4.7-Flash",
-      "temperature": 0.3,
-      "mode": "subagent",
-      "description": "Release [Chutes/GLM]: Fast changelog generation"
+      "description": "Test: Pony Alpha — FREE Opus-class subagent (data logged, personal only)"
     }
   },
-  
+
   // ============================================================================
   // PLUGINS
   // ============================================================================
@@ -829,7 +107,7 @@
     "oh-my-opencode-slim@latest",
     "opencode-chutes@latest"
   ],
-  
+
   // ============================================================================
   // MCP SERVERS
   // ============================================================================
@@ -856,7 +134,7 @@
       ]
     }
   },
-  
+
   // ============================================================================
   // PROVIDERS
   // ============================================================================
@@ -868,64 +146,16 @@
         "baseURL": "https://api.chutes.ai/v1"
       },
       "models": {
-        "deepseek-ai/DeepSeek-R1-0528-TEE": {
-          "name": "DeepSeek R1 0528 TEE",
-          "description": "Best open reasoning model 2026, transparent chain-of-thought"
-        },
-        "deepseek-ai/DeepSeek-V3.2-TEE": {
-          "name": "DeepSeek V3.2 TEE",
-          "description": "GPT-5 class at $0.25/$0.38 per 1M. THE value king of 2026. 163K context, reasoning enabled."
-        },
-        "deepseek-ai/DeepSeek-V3.2-Speciale-TEE": {
-          "name": "DeepSeek V3.2 Speciale TEE",
-          "description": "Specialized variant of V3.2 for agent autonomy and tool use"
-        },
-        "moonshotai/Kimi-K2.5": {
-          "name": "Kimi K2.5",
-          "description": "Best for TypeScript/React, agent swarm with 100 sub-agents"
-        },
         "moonshotai/Kimi-K2.5-TEE": {
           "name": "Kimi K2.5 TEE",
-          "description": "Kimi K2.5 with Trusted Execution Environment, 262K context"
-        },
-        "moonshotai/Kimi-K2-Thinking-TEE": {
-          "name": "Kimi K2 Thinking TEE",
-          "description": "Kimi with reasoning mode enabled, transparent chain-of-thought"
-        },
-        "Qwen/Qwen3-235B-A22B-Instruct-2507-TEE": {
-          "name": "Qwen3 235B A22B Instruct TEE",
-          "description": "Large context (235B), strong general reasoning"
-        },
-        "Qwen/Qwen3-Coder-Next": {
-          "name": "Qwen3 Coder Next",
-          "description": "Agentic coding specialist, tool use, 80B MoE"
-        },
-        "zai-org/GLM-4.7-Flash": {
-          "name": "GLM-4.7 Flash",
-          "description": "Fast, cost-effective (73.8% SWE-bench, 95.7% AIME)"
-        },
-        "zai-org/GLM-4.7-TEE": {
-          "name": "GLM-4.7 TEE",
-          "description": "Multimodal capable with Trusted Execution Environment"
-        },
-        "MiniMaxAI/MiniMax-M2.1-TEE": {
-          "name": "MiniMax M2.1 TEE",
-          "description": "Lightweight coding model, 10B active parameters, 72.5% SWE-Bench"
-        },
-        "mistralai/Devstral-2-123B-Instruct-2512-TEE": {
-          "name": "Devstral 2 123B TEE",
-          "description": "123B agentic coding model, multi-file orchestration, failure recovery"
-        },
-        "XiaomiMiMo/MiMo-V2-Flash": {
-          "name": "Xiaomi MiMo V2 Flash",
-          "description": "309B MoE with hybrid thinking, #1 open-source on SWE-bench"
+          "description": "Best value coding model, 262K context, agent swarm capable"
         }
       }
     }
   },
-  
+
   // ============================================================================
-  // SERVER CONFIG (for oh-my-opencode-slim tmux integration)
+  // SERVER CONFIG
   // ============================================================================
   "server": {
     "port": 4096

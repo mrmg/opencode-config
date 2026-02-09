@@ -1,4 +1,68 @@
 {
+  "agents": {
+    "orchestrator": {
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
+      "temperature": 0.2
+    },
+    "explorer": {
+      "model": "github-copilot/gpt-5.1-codex-mini",
+      "temperature": 0.0,
+      "variant": "low"
+    },
+    "librarian": {
+      "model": "github-copilot/gemini-3-flash",
+      "temperature": 0.1,
+      "variant": "low"
+    },
+    "oracle": {
+      "model": "openrouter/openrouter/pony-alpha",
+      "temperature": 0.2,
+      "variant": "high"
+    },
+    "designer": {
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
+      "temperature": 0.5,
+      "variant": "medium"
+    },
+    "fixer": {
+      "model": "github-copilot/gpt-5.1-codex-mini",
+      "temperature": 0.2,
+      "variant": "low"
+    }
+  },
+  "presets": {
+    "kato": {
+      "orchestrator": {
+        "model": "github-copilot/gpt-5.2-codex",
+        "temperature": 0.2
+      },
+      "explorer": {
+        "model": "github-copilot/gpt-5.1-codex-mini",
+        "temperature": 0.0,
+        "variant": "low"
+      },
+      "librarian": {
+        "model": "github-copilot/gemini-3-pro",
+        "temperature": 0.1,
+        "variant": "low"
+      },
+      "oracle": {
+        "model": "github-copilot/claude-sonnet-4.5",
+        "temperature": 0.2,
+        "variant": "high"
+      },
+      "designer": {
+        "model": "github-copilot/claude-sonnet-4.5",
+        "temperature": 0.5,
+        "variant": "medium"
+      },
+      "fixer": {
+        "model": "github-copilot/gpt-5.2-codex",
+        "temperature": 0.2,
+        "variant": "low"
+      }
+    }
+  },
   "tmux": {
     "enabled": true,
     "layout": "main-vertical",
