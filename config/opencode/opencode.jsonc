@@ -1,33 +1,33 @@
-// ============================================================================
-// OPENCODE CONFIGURATION
-// ============================================================================
-//
-// Personal (default): oh-my-opencode-slim pantheon — cost-optimized
-//   orchestrator  → Kimi K2.5 TEE (Chutes)
-//   explorer      → GPT-5.1-Codex-Mini (Copilot, 0.33x)
-//   librarian     → Gemini 3 Flash (Copilot, 0.33x)
-//   oracle        → Pony Alpha (OpenRouter, FREE)
-//   designer      → Kimi K2.5 TEE (Chutes)
-//   fixer         → GPT-5.1-Codex-Mini (Copilot, 0.33x)
-//
-// Kato (preset): oh-my-opencode-slim pantheon — premium (Copilot ≤1x)
-//   orchestrator  → GPT-5.2 Codex (Copilot, 1x)
-//   explorer      → GPT-5.1-Codex-Mini (Copilot, 0.33x)
-//   librarian     → Gemini 3 Pro (Copilot, 1x)
-//   oracle        → Claude Sonnet 4.5 (Copilot, 1x)
-//   designer      → Claude Sonnet 4.5 (Copilot, 1x)
-//   fixer         → GPT-5.2 Codex (Copilot, 1x)
-//
-// Activate Kato: OH_MY_OPENCODE_SLIM_PRESET=kato opencode
-//
-// Copilot multiplier reference:
-//   0x:   GPT-4.1, GPT-4o, GPT-5 mini, Raptor mini
-//   0.25x: Grok Code Fast 1
-//   0.33x: Claude Haiku 4.5, Gemini 3 Flash, GPT-5.1-Codex-Mini
-//   1x:   Sonnet 4/4.5, Gemini 3 Pro, GPT-5/5.1/5.2/Codex variants
-//   3x:   Claude Opus 4.5/4.6 — avoid
-//   10x:  Claude Opus 4.1 — never
-// ============================================================================
+  // ============================================================================
+  // OPENCODE CONFIGURATION
+  // ============================================================================
+  //
+  // Personal (default): oh-my-opencode-slim pantheon — cost-optimized
+  //   orchestrator  → Kimi K2.5 (nano-gpt, $0.60/$3)
+  //   explorer      → GPT-5.1-Codex-Mini (Copilot, 0.33x)
+  //   librarian     → Gemini 3 Flash (Copilot, 0.33x)
+  //   oracle        → Pony Alpha (OpenRouter, FREE)
+  //   designer      → Kimi K2.5 (nano-gpt, $0.60/$3)
+  //   fixer         → GPT-5.1-Codex-Mini (Copilot, 0.33x)
+  //
+  // Kato (preset): oh-my-opencode-slim pantheon — premium (Copilot ≤1x)
+  //   orchestrator  → GPT-5.2 Codex (Copilot, 1x)
+  //   explorer      → GPT-5.1-Codex-Mini (Copilot, 0.33x)
+  //   librarian     → Gemini 3 Pro (Copilot, 1x)
+  //   oracle        → Claude Sonnet 4.5 (Copilot, 1x)
+  //   designer      → Claude Sonnet 4.5 (Copilot, 1x)
+  //   fixer         → GPT-5.2 Codex (Copilot, 1x)
+  //
+  // Activate Kato: OH_MY_OPENCODE_SLIM_PRESET=kato opencode
+  //
+  // Copilot multiplier reference:
+  //   0x:   GPT-4.1, GPT-4o, GPT-5 mini, Raptor mini
+  //   0.25x: Grok Code Fast 1
+  //   0.33x: Claude Haiku 4.5, Gemini 3 Flash, GPT-5.1-Codex-Mini
+  //   1x:   Sonnet 4/4.5, Gemini 3 Pro, GPT-5/5.1/5.2/Codex variants
+  //   3x:   Claude Opus 4.5/4.6 — avoid
+  //   10x:  Claude Opus 4.1 — never
+  // ============================================================================
 
 {
   "$schema": "https://opencode.ai/config.json",
@@ -104,8 +104,7 @@
   // PLUGINS
   // ============================================================================
   "plugin": [
-    "oh-my-opencode-slim@latest",
-    "opencode-chutes@latest"
+    "oh-my-opencode-slim@latest"
   ],
 
   // ============================================================================
@@ -139,16 +138,36 @@
   // PROVIDERS
   // ============================================================================
   "provider": {
-    "chutes": {
-      "name": "Chutes.ai",
+    "nano-gpt": {
+      "name": "NanoGPT",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "https://api.chutes.ai/v1"
+        "baseURL": "https://nano-gpt.com/api/v1"
       },
       "models": {
-        "moonshotai/Kimi-K2.5-TEE": {
-          "name": "Kimi K2.5 TEE",
-          "description": "Best value coding model, 262K context, agent swarm capable"
+        "moonshotai/kimi-k2.5": {
+          "name": "Kimi K2.5",
+          "description": "Best value coding model on NanoGPT, 256K context"
+        },
+        "moonshotai/kimi-k2.5:thinking": {
+          "name": "Kimi K2.5 Thinking",
+          "description": "Kimi K2.5 with reasoning enabled"
+        },
+        "deepseek/deepseek-v3.2": {
+          "name": "DeepSeek V3.2",
+          "description": "GPT-5 class reasoning model"
+        },
+        "deepseek/deepseek-v3.2:thinking": {
+          "name": "DeepSeek V3.2 Thinking",
+          "description": "DeepSeek V3.2 with thinking mode"
+        },
+        "deepseek/deepseek-r1": {
+          "name": "DeepSeek R1",
+          "description": "Reasoning model for complex tasks"
+        },
+        "zai-org/glm-4.7": {
+          "name": "GLM 4.7",
+          "description": "Fast, cost-effective general purpose model"
         }
       }
     }

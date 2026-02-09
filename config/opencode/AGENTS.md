@@ -12,11 +12,11 @@ Cost-optimized. Configured in `oh-my-opencode-slim.json` → `agents`.
 
 | Agent | Role | Model | Provider | Cost |
 |-------|------|-------|----------|------|
-| **orchestrator** | Master delegator | Kimi K2.5 TEE | Chutes | ~$0.45/$2.25 |
+| **orchestrator** | Master delegator | Kimi K2.5 | NanoGPT | $0.60/$3 |
 | **explorer** | Codebase search | GPT-5.1-Codex-Mini | Copilot | 0.33x |
 | **librarian** | Docs research | Gemini 3 Flash | Copilot | 0.33x |
 | **oracle** | Architecture, debugging | Pony Alpha | OpenRouter | FREE |
-| **designer** | UI/UX design | Kimi K2.5 TEE | Chutes | ~$0.45/$2.25 |
+| **designer** | UI/UX design | Kimi K2.5 | NanoGPT | $0.60/$3 |
 | **fixer** | Fast implementation | GPT-5.1-Codex-Mini | Copilot | 0.33x |
 
 ## Kato Pantheon (Premium)
@@ -63,8 +63,21 @@ Frontier models for comparison. Spin up from orchestrator:
 
 | File | Purpose |
 |------|---------|
-| `opencode.jsonc` | Pony primary, testing subagents, providers, MCPs, plugins |
+| `opencode.jsonc` | Pony primary, testing subagents, NanoGPT provider, MCPs, plugins |
 | `oh-my-opencode-slim.json` | Personal + Kato pantheon model overrides |
+
+## NanoGPT Provider
+
+NanoGPT provides cost-effective alternatives to Chutes with better uptime.
+
+| Model | Use Case | Cost (per 1M) |
+|-------|----------|---------------|
+| `moonshotai/kimi-k2.5` | Coding, orchestration, design | $0.60/$3 |
+| `moonshotai/kimi-k2.5:thinking` | Reasoning tasks | $0.60/$3 |
+| `deepseek/deepseek-v3.2` | GPT-5 class reasoning | $0.40/$1.20 |
+| `deepseek/deepseek-v3.2:thinking` | Deep reasoning | $0.40/$1.20 |
+| `deepseek/deepseek-r1` | Reasoning specialist | $0.40/$1.20 |
+| `zai-org/glm-4.7` | Fast, cost-effective | $1/$2 |
 
 ## Copilot Multiplier Reference
 
