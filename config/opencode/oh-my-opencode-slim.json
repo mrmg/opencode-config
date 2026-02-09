@@ -1,4 +1,12 @@
 {
+  "agents": {
+    "orchestrator": { "model": "chutes/moonshotai/Kimi-K2.5-TEE" },
+    "designer": { "model": "chutes/moonshotai/Kimi-K2.5-TEE" },
+    "oracle": { "model": "chutes/deepseek-ai/DeepSeek-V3.2-TEE" },
+    "explorer": { "model": "chutes/zai-org/GLM-4.7-Flash" },
+    "librarian": { "model": "chutes/moonshotai/Kimi-K2.5-TEE" },
+    "fixer": { "model": "chutes/Qwen/Qwen3-Coder-Next" }
+  },
   "tmux": {
     "enabled": true,
     "layout": "main-vertical",
