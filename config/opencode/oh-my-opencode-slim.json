@@ -1,7 +1,7 @@
 {
   "agents": {
     "orchestrator": {
-      "model": "nano-gpt/zai-org/glm-5",
+      "model": "nano-gpt/zai-org/glm-5:thinking",
       "temperature": 0.2
     },
     "explorer": {
@@ -15,7 +15,7 @@
       "variant": "low"
     },
     "oracle": {
-      "model": "chutes/zai-org/GLM-5-TEE",
+      "model": "nano-gpt/zai-org/glm-5:thinking",
       "temperature": 0.2,
       "variant": "high"
     },
@@ -25,7 +25,7 @@
       "variant": "medium"
     },
     "fixer": {
-      "model": "nano-gpt/zai-org/glm-5",
+      "model": "nano-gpt/zai-org/glm-5:thinking",
       "temperature": 0.2,
       "variant": "low"
     }

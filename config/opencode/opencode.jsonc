@@ -42,10 +42,10 @@
     // --- Primary Agent: GLM-5 (subscription-included) ---
 
     "pony": {
-      "model": "nano-gpt/zai-org/glm-5",
+      "model": "nano-gpt/zai-org/glm-5:thinking",
       "temperature": 0.2,
       "mode": "primary",
-      "description": "GLM-5 — Frontier open weights model (50 Intelligence Index, subscription-included)"
+      "description": "GLM-5 Thinking — Enhanced reasoning mode (50+ Intelligence Index, subscription-included)"
     },
 
     // --- Testing: Frontier models as subagents (OpenRouter, pay-per-token) ---
