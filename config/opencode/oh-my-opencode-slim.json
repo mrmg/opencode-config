@@ -1,7 +1,7 @@
 {
   "agents": {
     "orchestrator": {
-      "model": "nano-gpt/moonshotai/kimi-k2.5",
+      "model": "nano-gpt/zai-org/glm-5",
       "temperature": 0.2
     },
     "explorer": {
