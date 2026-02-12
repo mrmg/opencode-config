@@ -5,27 +5,27 @@
       "temperature": 0.2
     },
     "explorer": {
-      "model": "github-copilot/gpt-5.1-codex-mini",
+      "model": "nano-gpt/zai-org/glm-5",
       "temperature": 0.0,
       "variant": "low"
     },
     "librarian": {
-      "model": "github-copilot/gemini-3-flash",
+      "model": "nano-gpt/zai-org/glm-5",
       "temperature": 0.1,
       "variant": "low"
     },
     "oracle": {
-      "model": "openrouter/openrouter/pony-alpha",
+      "model": "chutes/zai-org/GLM-5-TEE",
       "temperature": 0.2,
       "variant": "high"
     },
     "designer": {
-      "model": "nano-gpt/moonshotai/kimi-k2.5",
+      "model": "nano-gpt/zai-org/glm-5",
       "temperature": 0.5,
       "variant": "medium"
     },
     "fixer": {
-      "model": "github-copilot/gpt-5.1-codex-mini",
+      "model": "nano-gpt/zai-org/glm-5",
       "temperature": 0.2,
       "variant": "low"
     }
