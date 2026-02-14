@@ -3,7 +3,7 @@
   // ============================================================================
   //
   // Agent models are defined in oh-my-opencode.json
-  //   main agents → Copilot (GPT-5.3 Codex, Gemini 3 Flash)
+  //   main agents → Copilot (GPT-5.2 Codex, Gemini 3 Flash)
   //   non-Copilot → Chutes (GLM-5-TEE, Kimi-K2.5-TEE)
   //
   // Copilot multiplier reference:

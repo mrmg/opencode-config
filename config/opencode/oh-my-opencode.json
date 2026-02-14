@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "max"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "medium"
     },
     "oracle": {
@@ -23,15 +23,15 @@
       "model": "github-copilot/gemini-3-flash-preview"
     },
     "prometheus": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "max"
     },
     "metis": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "max"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "medium"
     },
     "atlas": {
@@ -43,11 +43,11 @@
       "model": "github-copilot/gemini-3-flash-preview"
     },
     "ultrabrain": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "xhigh"
     },
     "deep": {
-      "model": "github-copilot/gpt-5.3-codex",
+      "model": "github-copilot/gpt-5.2-codex",
       "variant": "medium"
     },
     "artistry": {
@@ -61,7 +61,7 @@
       "model": "github-copilot/gemini-3-flash-preview"
     },
     "unspecified-high": {
-      "model": "github-copilot/gpt-5.3-codex"
+      "model": "github-copilot/gpt-5.2-codex"
     },
     "writing": {
       "model": "github-copilot/gemini-3-flash-preview"
