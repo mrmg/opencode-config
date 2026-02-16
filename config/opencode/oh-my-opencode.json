@@ -2,36 +2,36 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "max"
     },
     "hephaestus": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "medium"
     },
     "oracle": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "high"
     },
     "librarian": {
-      "model": "zai/glm-4.5"
+      "model": "zai-coding-plan/glm-5"
     },
     "explore": {
-      "model": "zai/glm-4.5"
+      "model": "zai-coding-plan/glm-5"
     },
     "multimodal-looker": {
-      "model": "zai/glm-4.5v"
+      "model": "zai-coding-plan/glm-4.6v"
     },
     "prometheus": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "max"
     },
     "metis": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "max"
     },
     "momus": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "medium"
     },
     "atlas": {
@@ -40,31 +40,31 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "zai/glm-4.5"
+      "model": "zai-coding-plan/glm-5"
     },
     "ultrabrain": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "xhigh"
     },
     "deep": {
-      "model": "zai/glm-5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "medium"
     },
     "artistry": {
-      "model": "zai/glm-4.5",
+      "model": "zai-coding-plan/glm-5",
       "variant": "high"
     },
     "quick": {
-      "model": "zai/glm-4.5"
+      "model": "zai-coding-plan/glm-5"
     },
     "unspecified-low": {
-      "model": "nano-gpt/zai-org/glm-4.7"
+      "model": "zai-coding-plan/glm-4.7-flash"
     },
     "unspecified-high": {
-      "model": "zai/glm-5"
+      "model": "zai-coding-plan/glm-5"
     },
     "writing": {
-      "model": "zai/glm-4.5"
+      "model": "zai-coding-plan/glm-5"
     }
   }
 }
