@@ -2,36 +2,36 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "max"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "medium"
     },
     "oracle": {
-      "model": "chutes/zai-org/GLM-5-TEE",
+      "model": "zai/glm-5",
       "variant": "high"
     },
     "librarian": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "zai/glm-4.5"
     },
     "explore": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "zai/glm-4.5"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "zai/glm-4.5v"
     },
     "prometheus": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "max"
     },
     "metis": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "max"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "medium"
     },
     "atlas": {
@@ -40,31 +40,31 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "zai/glm-4.5"
     },
     "ultrabrain": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "xhigh"
     },
     "deep": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "zai/glm-5",
       "variant": "medium"
     },
     "artistry": {
-      "model": "github-copilot/gemini-3-flash-preview",
+      "model": "zai/glm-4.5",
       "variant": "high"
     },
     "quick": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "zai/glm-4.5"
     },
     "unspecified-low": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "nano-gpt/zai-org/glm-4.7"
     },
     "unspecified-high": {
-      "model": "github-copilot/gpt-5.2-codex"
+      "model": "zai/glm-5"
     },
     "writing": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "zai/glm-4.5"
     }
   }
 }

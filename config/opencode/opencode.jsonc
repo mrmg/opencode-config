@@ -158,6 +158,27 @@
         }
       }
     },
+    "zai": {
+      "name": "Z.AI",
+      "npm": "@ai-sdk/anthropic",
+      "options": {
+        "baseURL": "https://api.z.ai/api/anthropic/v1"
+      },
+      "models": {
+        "glm-4.7": {
+          "name": "GLM 4.7",
+          "description": "Z.AI GLM 4.7 - Strong coding model"
+        },
+        "glm-4.5": {
+          "name": "GLM 4.5",
+          "description": "Z.AI GLM 4.5 - Fast and capable"
+        },
+        "glm-4.5-air": {
+          "name": "GLM 4.5 Air",
+          "description": "Z.AI GLM 4.5 Air - Cost-effective"
+        }
+      }
+    },
     "google": {
       "name": "Google",
       "models": {
