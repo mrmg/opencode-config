@@ -2,37 +2,62 @@
 
 ## Architecture
 
-- **2 full pantheons** via oh-my-opencode-slim presets (Personal + Kato)
+- **Dual-model strategy** — MiniMax M2.5 (coding) + GLM-5 (reasoning)
 - **1 primary agent** — Pony Alpha (FREE frontier)
 - **7 testing subagents** — frontier OpenRouter models
 
-## Personal Pantheon (Default)
+## Model Distribution
 
-Cost-optimized. Configured in `oh-my-opencode-slim.json` → `agents`.
+Balanced across MiniMax M2.5 and GLM-5 based on strengths:
 
-| Agent | Role | Model | Provider | Cost |
-|-------|------|-------|----------|------|
-| **orchestrator** | Master delegator | Kimi K2.5 | NanoGPT | $0.60/$3 |
-| **explorer** | Codebase search | GPT-5.1-Codex-Mini | Copilot | 0.33x |
-| **librarian** | Docs research | Gemini 3 Flash | Copilot | 0.33x |
-| **oracle** | Architecture, debugging | Pony Alpha | OpenRouter | FREE |
-| **designer** | UI/UX design | Kimi K2.5 | NanoGPT | $0.60/$3 |
-| **fixer** | Fast implementation | GPT-5.1-Codex-Mini | Copilot | 0.33x |
+### MiniMax M2.5 (Coding Workhorse)
+- 80.2% SWE-Bench Verified
+- 76.8% BFCL Tool Calling
+- 50-100 TPS (Lightning)
+- FREE (1000 prompts/5hr)
 
-## Kato Pantheon (Premium)
+### GLM-5 (Reasoning Specialist)
+- 92.7% AIME Math
+- 77.8% SWE-Bench
+- 744B params, 40B active
+- 3x cost multiplier currently
 
-For client work. Configured in `oh-my-opencode-slim.json` → `presets.kato`.
+### GLM-4.6V (Vision)
+- 128K context
+- Native multimodal tool calling
+- Only vision option
 
-| Agent | Role | Model | Provider | Cost |
-|-------|------|-------|----------|------|
-| **orchestrator** | Master delegator | GPT-5.2 Codex | Copilot | 1x |
-| **explorer** | Codebase search | GPT-5.1-Codex-Mini | Copilot | 0.33x |
-| **librarian** | Docs research | Gemini 3 Pro | Copilot | 1x |
-| **oracle** | Architecture, debugging | Claude Sonnet 4.5 | Copilot | 1x |
-| **designer** | UI/UX design | Claude Sonnet 4.5 | Copilot | 1x |
-| **fixer** | Fast implementation | GPT-5.2 Codex | Copilot | 1x |
+## Agents
 
-Activate: `OH_MY_OPENCODE_SLIM_PRESET=kato opencode`
+| Agent | Model | Role | Strength Used |
+|-------|-------|------|---------------|
+| **sisyphus** | MiniMax M2.5 | Primary coder | 80.2% SWE, tool-calling |
+| **hephaestus** | GLM-5 | Builder | Reasoning depth |
+| **oracle** | GLM-5 | Debugging | Deep reasoning |
+| **librarian** | MiniMax M2.5 | Docs research | Speed, tool-calling |
+| **explore** | GLM-5 | Codebase search | Deep understanding |
+| **multimodal-looker** | GLM-4.6V | Vision | Multimodal |
+| **prometheus** | GLM-5 | Planning | Reasoning |
+| **metis** | MiniMax M2.5 | Pre-planning | Fast analysis |
+| **momus** | GLM-5 | Review | Critical thinking |
+| **atlas** | Kimi K2.5 | Fallback | Chutes availability |
+
+**Distribution: 4 MiniMax, 5 GLM-5, 1 GLM-4.6V, 1 Kimi**
+
+## Categories
+
+| Category | Model | Rationale |
+|----------|-------|-----------|
+| **visual-engineering** | MiniMax M2.5 | Better coding benchmark |
+| **ultrabrain** | GLM-5 xhigh | Hard logic needs reasoning |
+| **deep** | GLM-5 medium | Deep understanding |
+| **artistry** | MiniMax M2.5 | Creative coding |
+| **quick** | MiniMax M2.5 | Fast execution |
+| **unspecified-low** | GLM-5 | Spread load |
+| **unspecified-high** | GLM-5 high | Needs reasoning |
+| **writing** | MiniMax M2.5 | Docs don't need deep reasoning |
+
+**Distribution: 4 MiniMax, 4 GLM-5**
 
 ## Primary Agent
 
@@ -64,28 +89,37 @@ Frontier models for comparison. Spin up from orchestrator:
 | File | Purpose |
 |------|---------|
 | `opencode.jsonc` | Pony primary, testing subagents, NanoGPT provider, MCPs, plugins |
-| `oh-my-opencode-slim.json` | Personal + Kato pantheon model overrides |
+| `oh-my-opencode.json` | Agent model assignments (MiniMax + GLM distribution) |
 
-## NanoGPT Provider
+## Fallback: Chutes
 
-NanoGPT provides cost-effective alternatives to Chutes with better uptime.
+When MiniMax/GLM rate limits hit, Chutes provides alternatives:
 
-| Model | Use Case | Cost (per 1M) |
-|-------|----------|---------------|
-| `moonshotai/kimi-k2.5` | Coding, orchestration, design | $0.60/$3 |
-| `moonshotai/kimi-k2.5:thinking` | Reasoning tasks | $0.60/$3 |
-| `deepseek/deepseek-v3.2` | GPT-5 class reasoning | $0.40/$1.20 |
-| `deepseek/deepseek-v3.2:thinking` | Deep reasoning | $0.40/$1.20 |
-| `deepseek/deepseek-r1` | Reasoning specialist | $0.40/$1.20 |
-| `zai-org/glm-4.7` | Fast, cost-effective | $1/$2 |
+| Model | Use Case |
+|-------|----------|
+| `chutes/zai-org/GLM-5-TEE` | GLM-5 fallback |
+| `chutes/MiniMaxAI/MiniMax-M2.5-TEE` | MiniMax fallback |
+| `chutes/moonshotai/Kimi-K2.5-TEE` | Kimi fallback |
+| `chutes/deepseek-ai/DeepSeek-V3.2-TEE` | DeepSeek reasoning |
 
-## Copilot Multiplier Reference
+## Usage Guidelines
 
-| Multiplier | Models |
-|-----------|--------|
-| **0x** | GPT-4.1, GPT-4o, GPT-5 mini, Raptor mini |
-| **0.25x** | Grok Code Fast 1 |
-| **0.33x** | Claude Haiku 4.5, Gemini 3 Flash, GPT-5.1-Codex-Mini |
-| **1x** | Sonnet 4/4.5, Gemini 3 Pro, GPT-5/5.1/5.2/Codex |
-| **3x** | Claude Opus 4.5/4.6 — avoid |
-| **10x** | Claude Opus 4.1 — never |
+### When to use MiniMax M2.5
+- Primary coding tasks
+- Fast implementation (quick category)
+- Tool-calling heavy workflows
+- Documentation writing
+- UI/frontend work
+
+### When to use GLM-5
+- Complex debugging (oracle)
+- Architecture planning (prometheus)
+- Code review (momus)
+- Deep analysis (deep, ultrabrain)
+- Mathematical/algorithmic work
+
+### When to use GLM-4.6V
+- Screenshot analysis
+- Diagram interpretation
+- PDF reading
+- Visual debugging
